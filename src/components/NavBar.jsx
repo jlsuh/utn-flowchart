@@ -31,7 +31,7 @@ export const NavBar = () => {
           <PlanSelect />
           <IconButton
             aria-label="Github repository"
-            href="https://github.com/jlsuh/utn-flowsheet"
+            href="https://github.com/jlsuh/utn-flowchart"
             rel="noopener noreferrer"
             target="_blank"
             color="inherit"
