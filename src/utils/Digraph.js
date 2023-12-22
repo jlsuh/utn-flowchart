@@ -28,7 +28,7 @@ export class Digraph {
   #filterNonPassedSubjects(subjects) {
     return subjects.filter(
       (subject) =>
-        this.#contextSubjects[subject.id].status.name !== statuses.PASSED.name
+        this.#contextSubjects[subject.id].status.name !== statuses.PASSED.name,
     );
   }
 
@@ -98,24 +98,24 @@ export class Digraph {
 
   #appendTakenDependencies(subject) {
     const takenIds = subject.taken;
-    if (!!takenIds) {
+    if (takenIds) {
       const takenSubjects = this.#mapToSubjects(takenIds);
       this.#appendDependenciesWithOptions(
         subject,
         this.#filterNonPassedSubjects(takenSubjects),
-        [`${options.globalArrowSize}`, `${options.takenTransitionEdgeStyle}`]
+        [`${options.globalArrowSize}`, `${options.takenTransitionEdgeStyle}`],
       );
     }
   }
 
   #appendPassedDependencies(subject) {
     const passedIds = subject.passed;
-    if (!!passedIds) {
+    if (passedIds) {
       const passedSubjects = this.#mapToSubjects(passedIds);
       this.#appendDependenciesWithOptions(
         subject,
         this.#filterNonPassedSubjects(passedSubjects),
-        [`${options.globalArrowSize}`]
+        [`${options.globalArrowSize}`],
       );
     }
   }

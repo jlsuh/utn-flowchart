@@ -44,7 +44,7 @@ export const SubjectStack = () => {
                 <StatusMarker
                   key={`${replaceWhiteSpace(
                     `${status.name}-status-marker-${index}`,
-                    "-"
+                    "-",
                   )}`}
                   status={status}
                   levelSubjects={levelSubjects}
