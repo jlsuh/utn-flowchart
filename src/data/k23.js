@@ -218,7 +218,7 @@ export const k23 = {
         name: "Gestión Gerencial",
         modes: [modes.QUADRIMESTRAL],
         taken: ["legislacion", "admsi"],
-        taken: ["economia"],
+        passed: ["economia"],
       },
       {
         id: "selsi",
