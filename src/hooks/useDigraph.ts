@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Subject } from "../common/types";
 import { PlanContext, PlanContextProps } from "../context";
 import { Digraph, findPlanById } from "../utils";
 
@@ -7,8 +8,9 @@ export const useDigraph = () => {
   const plan = findPlanById(contextPlan.id);
 
   const composeDigraph = () => {
-    const subjectsByLevel = plan!.subjects;
+    const subjectsByLevel = plan!.subjects as Subject[][];
     const contextSubjects = contextPlan.subjects;
+    console.log(subjectsByLevel);
     return new Digraph(contextSubjects, subjectsByLevel).generate().toString();
   };
 
