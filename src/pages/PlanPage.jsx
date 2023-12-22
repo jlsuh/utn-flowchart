@@ -12,7 +12,7 @@ export const PlanPage = ({ plan }) => {
       setContextPlan(plan);
     }
     setIsReady(true);
-  }, []);
+  }, [contextPlan.id, plan, setContextPlan]);
 
   return <PlanLayout>{isReady && <PlanView />}</PlanLayout>;
 };
