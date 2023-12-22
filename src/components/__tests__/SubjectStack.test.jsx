@@ -1,12 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { SubjectStack } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { statuses } from "../../data/constants";
 import { findPlanById } from "../../utils";
 import { contextPlan, plan1 } from "./fixture";
 
-jest.mock("../../../src/utils/findPlanById", () => ({
-  findPlanById: jest.fn(),
+vi.mock("../../../src/utils/findPlanById", () => ({
+  findPlanById: vi.fn(),
 }));
 
 describe(`<${SubjectStack.name} /> Tests`, () => {
@@ -14,7 +15,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
   const headingRole = "heading";
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     findPlanById.mockImplementation(() => plan1);
   });
 
@@ -22,7 +23,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <SubjectStack />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const subjects = screen.getAllByRole(headingRole, {
       level: 4,
@@ -34,16 +35,16 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <SubjectStack />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const statusMarkers = screen.getAllByRole(buttonRole);
     expect(statusMarkers.length).toBe(
-      plan1.subjects.length * Object.values(statuses).length
+      plan1.subjects.length * Object.values(statuses).length,
     );
   });
 
   it("should invoke updateSubject on status marker click", () => {
-    const mockedUpdateStatuses = jest.fn();
+    const mockedUpdateStatuses = vi.fn();
     render(
       <PlanContext.Provider
         value={{
@@ -52,13 +53,13 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
         }}
       >
         <SubjectStack />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const statusMarkers = screen.getAllByRole(buttonRole);
     fireEvent.click(statusMarkers[3]);
     expect(mockedUpdateStatuses).toHaveBeenCalledWith(
       plan1.subjects[0],
-      statuses.PASSED
+      statuses.PASSED,
     );
   });
 });

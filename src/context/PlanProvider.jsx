@@ -25,7 +25,7 @@ const getInitialPlan = (plan) => {
 
 const initializer = (initialArg) => {
   const subjects = JSON.parse(localStorage.getItem(SUBJECTS_KEY));
-  if (!!subjects) {
+  if (subjects) {
     return subjects;
   }
   localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
@@ -37,7 +37,7 @@ export const PlanProvider = ({ children }) => {
   const [contextPlan, dispatch] = useReducer(
     planReducer,
     getInitialPlan(DEFAULT_PLAN),
-    initializer
+    initializer,
   );
 
   const setContextPlan = (plan) => {

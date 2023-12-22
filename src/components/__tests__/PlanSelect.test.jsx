@@ -1,18 +1,22 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { describe, expect, it, vi } from "vitest";
 import { PlanContext } from "../../context";
 import { PlanSelect } from "../PlanSelect";
 import { contextPlan, plan1, plan2, planId1, planId2 } from "./fixture";
 
-const mockedUseNavigate = jest.fn();
+const mockedUseNavigate = vi.fn();
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockedUseNavigate,
-}));
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useNavigate: () => mockedUseNavigate,
+  };
+});
 
 describe(`<${PlanSelect.name} /> Tests`, () => {
-  const buttonRole = "button";
+  const comboboxRole = "combobox";
   const optionRole = "option";
 
   it("should navigate on select change", () => {
@@ -25,9 +29,9 @@ describe(`<${PlanSelect.name} /> Tests`, () => {
         >
           <PlanSelect availablePlans={[plan1, plan2]} />
         </PlanContext.Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
-    const button = screen.getByRole(buttonRole);
+    const button = screen.getByRole(comboboxRole);
     fireEvent.mouseDown(button);
     const menuItems = screen.getAllByRole(optionRole);
     fireEvent.click(menuItems[1]);

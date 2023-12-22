@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { Subject } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { modes, statuses } from "../../data/constants";
@@ -14,7 +15,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const cardTitle = screen.getByText(subject.name);
     expect(cardTitle).toBeTruthy();
@@ -24,7 +25,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const options = screen.getAllByRole(optionRole);
     expect(options.length).toBe(Object.keys(modes).length);
@@ -34,14 +35,14 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const combobox = screen.getByRole(comboBoxRole);
     expect(combobox.value).toBe(JSON.stringify(modes.ANNUAL));
   });
 
   it("should invoke updateMode on select input change", () => {
-    const mockedUpdateMode = jest.fn();
+    const mockedUpdateMode = vi.fn();
     render(
       <PlanContext.Provider
         value={{
@@ -50,15 +51,15 @@ describe(`<${Subject.name} /> Tests`, () => {
         }}
       >
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
-    const combobox = screen.getByRole(comboBoxRole);
+    const combobox = screen.getAllByRole(comboBoxRole)[0];
     fireEvent.change(combobox, {
       target: { value: JSON.stringify(modes.QUADRIMESTRAL) },
     });
     expect(mockedUpdateMode).toHaveBeenCalledWith(
       subject.id,
-      modes.QUADRIMESTRAL
+      modes.QUADRIMESTRAL,
     );
   });
 
@@ -66,7 +67,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const radioGroup = screen.getByRole(radioGroupRole);
     expect(radioGroup.childElementCount).toBe(Object.values(statuses).length);
@@ -76,26 +77,26 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider value={{ contextPlan }}>
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const inputs = screen.getAllByRole(radioRole);
     expect(inputs[0].checked).toBeTruthy();
   });
 
   it("should invoke updateStatuses on radio group change", () => {
-    const mockedUpdateStatuses = jest.fn();
+    const mockedUpdateStatuses = vi.fn();
     render(
       <PlanContext.Provider
         value={{ contextPlan, updateStatuses: mockedUpdateStatuses }}
       >
         <Subject subject={subject} />
-      </PlanContext.Provider>
+      </PlanContext.Provider>,
     );
     const inputs = screen.getAllByRole(radioRole);
     fireEvent.click(inputs[1]);
     expect(mockedUpdateStatuses).toHaveBeenCalledWith(
       [subject],
-      statuses.IN_PROGRESS
+      statuses.IN_PROGRESS,
     );
   });
 });
