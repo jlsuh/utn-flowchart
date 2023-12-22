@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
 import { plans, statuses } from "../data";
@@ -40,10 +40,10 @@ export const PlanProvider = ({ children }) => {
     initializer,
   );
 
-  const setContextPlan = (plan) => {
+  const setContextPlan = useCallback((plan) => {
     const newPlan = getInitialPlan(plan);
     updatePlan(newPlan);
-  };
+  }, []);
 
   const updateMode = (subjectId, newMode) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
@@ -89,7 +89,7 @@ export const PlanProvider = ({ children }) => {
     if (!!plan && plan.id !== contextPlan.id) {
       setContextPlan(plan);
     }
-  }, [location.pathname]);
+  }, [location.pathname, contextPlan.id, setContextPlan]);
 
   return (
     <PlanContext.Provider
