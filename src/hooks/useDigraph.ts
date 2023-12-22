@@ -10,7 +10,6 @@ export const useDigraph = () => {
   const composeDigraph = () => {
     const subjectsByLevel = plan!.subjects as Subject[][];
     const contextSubjects = contextPlan.subjects;
-    console.log(subjectsByLevel);
     return new Digraph(contextSubjects, subjectsByLevel).generate().toString();
   };
 
