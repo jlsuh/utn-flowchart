@@ -1,6 +1,7 @@
 import PolylineIcon from "@mui/icons-material/Polyline";
 import { Button, Typography } from "@mui/material";
-import { useDigraph, useViz } from "../hooks";
+import { useDigraph } from "../hooks";
+import { renderSVG } from "../services";
 import { composeSVGObjectURL } from "../utils";
 
 const continuation = (svg: SVGElement) => {
@@ -10,7 +11,6 @@ const continuation = (svg: SVGElement) => {
 };
 
 export const ShowDigraphButton = () => {
-  const { renderSVG } = useViz();
   const { composeDigraph } = useDigraph();
 
   const handleClickShowDigraph = () => {
