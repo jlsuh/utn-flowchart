@@ -18,3 +18,10 @@ export interface Plan {
   branch: string;
   subjects: Record<string, Subject> | Subject[];
 }
+
+export interface PlanContextProps {
+  contextPlan: Plan;
+  setContextPlan: (plan: Plan) => void;
+  updateMode: (subjectId: string, newMode: string) => void;
+  updateStatuses: (subjects: Subject[], newStatus: Status) => void;
+}

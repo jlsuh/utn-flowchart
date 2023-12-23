@@ -6,8 +6,9 @@ import {
 } from "@mui/material";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { PlanContext, PlanContextProps } from "../context/PlanContext";
+import { PlanContext } from "../context/PlanContext";
 import { plans } from "../data";
+import { PlanContextProps } from "../types/types";
 
 const selectStyles = {
   color: "primary.contrastText",
