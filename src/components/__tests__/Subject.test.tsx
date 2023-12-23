@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 import { Subject } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { modes, statuses } from "../../data/constants";
-import { contextPlan, subject } from "./fixture";
+import { contextPlanValue, subject } from "./fixture";
 
 describe(`<${Subject.name} /> Tests`, () => {
   const comboBoxRole = "combobox";
@@ -13,14 +13,7 @@ describe(`<${Subject.name} /> Tests`, () => {
 
   it("should render card with subject name", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          updateMode: () => {},
-          updateStatuses: () => {},
-          setContextPlan: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
@@ -30,14 +23,7 @@ describe(`<${Subject.name} /> Tests`, () => {
 
   it("should render card with modes combobox", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          updateMode: () => {},
-          updateStatuses: () => {},
-          setContextPlan: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
@@ -47,14 +33,7 @@ describe(`<${Subject.name} /> Tests`, () => {
 
   it("should select first mode as default", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          updateMode: () => {},
-          updateStatuses: () => {},
-          setContextPlan: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
@@ -67,9 +46,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider
         value={{
-          contextPlan,
-          updateStatuses: () => {},
-          setContextPlan: () => {},
+          ...contextPlanValue,
           updateMode: mockedUpdateMode,
         }}
       >
@@ -88,14 +65,7 @@ describe(`<${Subject.name} /> Tests`, () => {
 
   it("should render card with statuses radio group", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          updateMode: () => {},
-          updateStatuses: () => {},
-          setContextPlan: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
@@ -105,14 +75,7 @@ describe(`<${Subject.name} /> Tests`, () => {
 
   it("should check first status as default", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          updateMode: () => {},
-          updateStatuses: () => {},
-          setContextPlan: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
@@ -125,9 +88,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     render(
       <PlanContext.Provider
         value={{
-          contextPlan,
-          updateMode: () => {},
-          setContextPlan: () => {},
+          ...contextPlanValue,
           updateStatuses: mockedUpdateStatuses,
         }}
       >

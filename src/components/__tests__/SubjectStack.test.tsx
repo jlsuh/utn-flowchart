@@ -4,7 +4,7 @@ import { SubjectStack } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { statuses } from "../../data/constants";
 import { findPlanById } from "../../utils";
-import { contextPlan, plan1 } from "./fixture";
+import { contextPlanValue, plan1 } from "./fixture";
 
 vi.mock("../../../src/utils/findPlanById", () => ({
   findPlanById: vi.fn(),
@@ -21,14 +21,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
 
   it("should render stack with plan subjects", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          setContextPlan: () => {},
-          updateMode: () => {},
-          updateStatuses: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <SubjectStack />
       </PlanContext.Provider>,
     );
@@ -40,14 +33,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
 
   it("should render all status markers", () => {
     render(
-      <PlanContext.Provider
-        value={{
-          contextPlan,
-          setContextPlan: () => {},
-          updateMode: () => {},
-          updateStatuses: () => {},
-        }}
-      >
+      <PlanContext.Provider value={contextPlanValue}>
         <SubjectStack />
       </PlanContext.Provider>,
     );
@@ -62,9 +48,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     render(
       <PlanContext.Provider
         value={{
-          contextPlan,
-          setContextPlan: () => {},
-          updateMode: () => {},
+          ...contextPlanValue,
           updateStatuses: mockedUpdateStatuses,
         }}
       >

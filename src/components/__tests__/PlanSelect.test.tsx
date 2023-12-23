@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import { PlanContext } from "../../context";
 import { PlanSelect } from "../PlanSelect";
-import { contextPlan, plan1, plan2, planId1, planId2 } from "./fixture";
+import { contextPlanValue, plan1, plan2, planId1, planId2 } from "./fixture";
 
 const mockedUseNavigate = vi.fn();
 
@@ -22,14 +22,7 @@ describe(`<${PlanSelect.name} /> Tests`, () => {
   it("should navigate on select change", () => {
     render(
       <MemoryRouter initialEntries={[`/${planId1}`]}>
-        <PlanContext.Provider
-          value={{
-            contextPlan,
-            setContextPlan: () => {},
-            updateMode: () => {},
-            updateStatuses: () => {},
-          }}
-        >
+        <PlanContext.Provider value={contextPlanValue}>
           <PlanSelect availablePlans={[plan1, plan2]} />
         </PlanContext.Provider>
       </MemoryRouter>,

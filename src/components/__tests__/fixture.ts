@@ -1,5 +1,5 @@
 import { modes, statuses } from "../../data";
-import { Plan } from "../../types/types";
+import { Plan, PlanContextProps } from "../../types/types";
 
 const id1 = "subject-1";
 const id2 = "subject-2";
@@ -70,5 +70,19 @@ const plan2 = {
     ],
   ],
 };
+const contextPlanValue: PlanContextProps = {
+  contextPlan,
+  setContextPlan: () => {},
+  updateMode: () => {},
+  updateStatuses: () => {},
+};
 
-export { contextPlan, plan1, plan2, planId1, planId2, subject };
+export {
+  contextPlan,
+  contextPlanValue,
+  plan1,
+  plan2,
+  planId1,
+  planId2,
+  subject,
+};
