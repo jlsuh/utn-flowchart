@@ -1,8 +1,22 @@
 {
   "name": "utn-flowchart",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "description": "UTN Flowchart is a tool to help students of the National Technological University of Argentina to plan their careers. It generates a flowchart with the subjects that the student has already passed and the ones that are left to pass.",
+  "keywords": [
+    "flowchart",
+    "utn",
+    "seguidor",
+    "carrera"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlsuh/utn-flowchart.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jlsuh/utn-flowchart/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
