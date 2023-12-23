@@ -8,7 +8,7 @@ import {
 import { ChangeEvent, useContext } from "react";
 import { PlanContext, PlanContextProps } from "../context";
 import { statuses } from "../data";
-import { Subject } from "../types";
+import { Subject } from "../types/types";
 
 export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
   const { contextPlan, updateStatuses } =

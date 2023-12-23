@@ -1,5 +1,5 @@
 import { modes, options, statuses } from "../data";
-import { Subject } from "../types";
+import { Subject } from "../types/types";
 
 export class Digraph {
   private allSubjects: Subject[];

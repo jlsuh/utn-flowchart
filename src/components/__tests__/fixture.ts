@@ -1,5 +1,5 @@
 import { modes, statuses } from "../../data";
-import { Plan } from "../../types";
+import { Plan } from "../../types/types";
 
 const id1 = "subject-1";
 const id2 = "subject-2";

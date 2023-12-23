@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PlanContext, PlanContextProps } from "../context";
-import { Subject } from "../types";
+import { Subject } from "../types/types";
 import { Digraph, findPlanById } from "../utils";
 
 export const useDigraph = () => {

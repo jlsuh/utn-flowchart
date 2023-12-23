@@ -2,7 +2,7 @@ import { ReactNode, useCallback, useEffect, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
 import { plans, statuses } from "../data";
-import { Plan, Status, Subject } from "../types";
+import { Plan, Status, Subject } from "../types/types";
 import { planReducer } from "./planReducer";
 import { planTypes } from "./planTypes";
 

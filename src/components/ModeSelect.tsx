@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, NativeSelect } from "@mui/material";
 import { ChangeEvent, useContext } from "react";
 import { PlanContext, PlanContextProps } from "../context";
-import { Subject } from "../types";
+import { Subject } from "../types/types";
 import { replaceWhiteSpace } from "../utils";
 
 export const ModeSelect = ({ subject }: { subject: Subject }) => {
