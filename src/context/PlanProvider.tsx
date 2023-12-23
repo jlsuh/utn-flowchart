@@ -49,7 +49,12 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
     newSubjects[subjectId] = {
       ...newSubjects[subjectId],
-      mode: newMode,
+      modes: [
+        newMode,
+        ...newSubjects[subjectId].modes.filter(
+          (mode: string) => mode !== newMode,
+        ),
+      ],
     };
     const newPlan = {
       ...contextPlan,

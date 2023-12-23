@@ -136,11 +136,11 @@ export class Digraph {
 
   private appendNodeOptions(name: string, id: string) {
     this.appendSubjectNames([name]);
-    const { status, mode } = this.contextSubjects[
+    const { status, modes: subjectModes } = this.contextSubjects[
       id as keyof typeof this.contextSubjects
     ] as Subject;
     const nodeOptions = [`style="filled"fillcolor="${status.color}"`];
-    if (mode === modes.ANNUAL) {
+    if (subjectModes![0] === modes.ANNUAL) {
       nodeOptions.push(`${options.annualSubject}`);
     }
     this.appendString(this.getJoinedOptions(nodeOptions));

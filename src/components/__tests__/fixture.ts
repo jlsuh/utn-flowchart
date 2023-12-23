@@ -27,7 +27,6 @@ const subject = {
   id: id1,
   modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
   name: subjectName1,
-  mode: modes.ANNUAL,
   status: statuses.PENDING,
 };
 const plan1 = {

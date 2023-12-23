@@ -6,7 +6,6 @@ export interface Status {
 export interface Subject {
   id?: string;
   modes?: string[];
-  mode?: string;
   name?: string;
   status: Status;
   taken?: string[];
