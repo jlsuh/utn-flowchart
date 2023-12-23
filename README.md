@@ -10,7 +10,7 @@ Para cada materia, es posible elegir tanto los _estados_ como la _modalidad de c
 
 - **Falta cursada**: Todavía no cursada. El nodo asociado figura en color gris.
 - **Cursando**: Cursando actualmente. El nodo asociado figura en color celeste.
-- **Firmada**: "Regularizada" o bien con final pendiente. El nodo asociado figura en color amarillo.
+- **Firmada**: "Regularizada" o bien con final pendiente. El nodo asociado figura en color naranja.
 - **Aprobada**: Aprobada con final o promoción. El nodo asociado es omitido en el digrafo (aunque en el panel principal figura en color verde).
 
 <p align="center">
