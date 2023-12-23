@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Plan, Status, Subject } from "../common/types";
+import { Plan, Status, Subject } from "../types";
 
 export interface PlanContextProps {
   contextPlan: Plan;

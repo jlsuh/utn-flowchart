@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { Subject } from ".";
-import { Subject as SubjectProps } from "../common/types";
+import { Subject as SubjectProps } from "../types";
 
 export const SubjectGrid = ({
   levelSubjects,

@@ -1,14 +1,14 @@
-import { Subject } from "../common/types";
 import { modes, options, statuses } from "../data";
+import { Subject } from "../types";
 
 export class Digraph {
   private allSubjects: Subject[];
-  private contextSubjects: Record<string, Subject> | Subject[] | Subject[][];
+  private contextSubjects: Record<string, Subject> | Subject[];
   private digraph: string;
   private subjectsByLevel: Subject[][];
 
   constructor(
-    contextSubjects: Record<string, Subject> | Subject[] | Subject[][],
+    contextSubjects: Record<string, Subject> | Subject[],
     subjectsByLevel: Subject[][],
   ) {
     this.allSubjects = subjectsByLevel.flat();

@@ -1,7 +1,7 @@
 import { Box, Divider, Link } from "@mui/material";
 import { useContext } from "react";
-import { Status, Subject } from "../common/types";
 import { PlanContext, PlanContextProps } from "../context";
+import { Status, Subject } from "../types";
 
 export const StatusMarker = ({
   status,

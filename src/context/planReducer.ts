@@ -1,4 +1,4 @@
-import { Plan } from "../common/types";
+import { Plan } from "../types";
 import { planTypes } from "./planTypes";
 
 interface PlanAction {

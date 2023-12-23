@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Plan } from "./common/types";
 import { PlanContext, PlanContextProps } from "./context";
 import { plans } from "./data";
 import { PlanPage } from "./pages";
+import { Plan } from "./types";
 
 export default function AppRouter() {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);

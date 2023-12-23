@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { Plan } from "../common/types";
 import { PlanContext, PlanContextProps } from "../context";
 import { PlanLayout } from "../layout";
+import { Plan } from "../types";
 import { PlanView } from "../views";
 
 export const PlanPage = ({ plan }: { plan: Plan }) => {

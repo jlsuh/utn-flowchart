@@ -7,8 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useContext } from "react";
-import { Subject as SubjectProps } from "../common/types";
 import { PlanContext, PlanContextProps } from "../context";
+import { Subject as SubjectProps } from "../types";
 import { ModeSelect } from "./ModeSelect";
 import { StatusRadioGroup } from "./StatusRadioGroup";
 
