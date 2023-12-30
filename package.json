@@ -25,10 +25,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.1",
-    "@mui/material": "^5.15.1",
+    "@mui/icons-material": "^5.15.2",
+    "@mui/material": "^5.15.2",
     "@viz-js/viz": "^3.2.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",
@@ -37,9 +37,9 @@
   "devDependencies": {
     "@testing-library/react": "^14.1.2",
     "@types/react-dom": "^18.2.17",
-    "@types/react": "^18.2.43",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
+    "@types/react": "^18.2.46",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
