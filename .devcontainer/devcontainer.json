@@ -1,35 +1,36 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-    "name": "UTN Flowchart Devcontainer",
-    "build": {
-            "context": "..",
-            "dockerfile": "../Dockerfile",
-            "target": "dev"
-    },
+  "name": "UTN Flowchart Devcontainer",
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile",
+    "target": "dev"
+  },
 
-    "workspaceFolder": "/app",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
 
-    "customizations": {
-            "vscode": {
-                    "settings": {
-                            "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-                            "editor.formatOnSave": true,
-                            "editor.codeActionsOnSave": {
-                                    "source.fixAll": true,
-                                    "source.organizeImports": true
-                            },
-                            "editor.insertSpaces": false,
-                            "eslint.enable": true,
-                            "eslint.format.enable": true,
-                            "eslint.codeActionsOnSave.mode": "all",
-                            "eslint.run": "onSave"
-                    },
-                    "extensions": [
-                            "dbaeumer.vscode-eslint"
-                    ]
-            }
-    },
-    "remoteUser": "node"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true,
+          "source.organizeImports": true
+        },
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "eslint.enable": true,
+        "eslint.format.enable": true,
+        "eslint.codeActionsOnSave.mode": "all",
+        "eslint.run": "onSave"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "remoteUser": "node"
 }
