@@ -130,3 +130,39 @@ La incorporación del plan de estudio en cuestión se verá reflejada en la apli
 <p align="center">
   <img src="https://github.com/jlsuh/utn-flowchart/assets/38252227/9329e986-0b66-4d95-bd14-9837aac545f0">
 </p>
+
+## Levantar la aplicación con Docker
+
+Es posible levantar la aplicación localmente mediante Docker. La imagen del contenedor es obtenible de las siguientes formas estipuladas.
+
+### Obtener la imagen a partir del repositorio:
+
+Luego de clonar el repositorio, posicionarse en el directorio raíz del proyecto y ejecutar:
+
+```bash
+docker build -t utn-flowchart .
+```
+
+### Obtener la imagen de Docker Hub:
+
+La misma es obtenible mediante:
+
+```bash
+docker pull jlsuh/utn-flowchart:latest
+```
+
+## Creación del contenedor
+
+Una vez obtenida la imagen, es posible crear el contenedor y levantar la aplicación de la forma:
+
+```bash
+docker run --rm -dp 80:80 utn-flowchart
+```
+
+O bien, en caso de haber obtenido la imagen de Docker Hub:
+
+```bash
+docker run --rm -dp 80:80 jlsuh/utn-flowchart
+```
+
+La aplicación ejecutará en `localhost:80`.
