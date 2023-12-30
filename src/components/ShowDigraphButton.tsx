@@ -19,11 +19,9 @@ export const ShowDigraphButton = () => {
   };
 
   return (
-    <>
-      <Button variant="outlined" onClick={handleClickShowDigraph}>
-        <PolylineIcon sx={{ mr: 1, fontSize: 22 }} />
-        <Typography>Ver Digrafo</Typography>
-      </Button>
-    </>
+    <Button variant="outlined" onClick={handleClickShowDigraph}>
+      <PolylineIcon sx={{ mr: 1, fontSize: 22 }} />
+      <Typography>Ver Digrafo</Typography>
+    </Button>
   );
 };
