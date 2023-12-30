@@ -132,27 +132,37 @@ La incorporación del plan de estudio en cuestión se verá reflejada en la apli
 </p>
 
 ## Levantar la aplicación con Docker
-Existe la posibilidad de levantar la aplicación localmente usando docker. Para ello, se puede obtener la imagen para el contenedor de las siguientes maneras:
-### Crear la imagen a partir del repositorio
-Clonar el repositorio y posicionarse en la carpeta raiz del proyecto. Una vez hecho esto, ejecutar:
-```
+
+Es posible levantar la aplicación localmente mediante Docker. La imagen del contenedor es obtenible de las siguientes formas estipuladas.
+
+### Obtener la imagen a partir del repositorio:
+
+Luego de clonar el repositorio, posicionarse en el directorio raíz del proyecto y ejecutar:
+
+```bash
 docker build -t utn-flowchart .
 ```
 
-### Obteniendo la imagen desde Docker Hub
-También existe una imagen publicada en docker hub. Se puede obtener haciendo:
-```
-docker pull int0x80sys/utn-flowchart:latest
+### Obtener la imagen de Docker Hub:
+
+La misma es obtenible mediante:
+
+```bash
+docker pull jlsuh/utn-flowchart:latest
 ```
 
-### Creando el contenedor
-Una vez obtenida la imagen, se puede crear el contenedor y levantar la aplicación de la siguiente manera:
-```
-docker run --rm -d -p 80:80 utn-flowchart
-```
-o en caso de haber obtenido la imagen desde el repositorio de docker hub:
-```
-docker run --rm -d -p 80:80 int0x80sys/utn-flowchart
+## Creación del contenedor
+
+Una vez obtenida la imagen, es posible crear el contenedor y levantar la aplicación de la forma:
+
+```bash
+docker run --rm -dp 80:80 utn-flowchart
 ```
 
-La aplicación correrá en `localhost` en el puerto 80
+O bien, en caso de haber obtenido la imagen de Docker Hub:
+
+```bash
+docker run --rm -dp 80:80 jlsuh/utn-flowchart
+```
+
+La aplicación ejecutará en `localhost:80`.
