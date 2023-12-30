@@ -152,7 +152,7 @@ export const codigoDelPlan = {
 - El `array` `taken` contiene los `id` de las materias que son requisito para poder **cursar la materia en cuestión**.
 - El `array` `passed` contiene los `id` de las materias que son requisito para poder **aprobar la materia en cuestión**.
 
-Finalmente, el objeto del plan incorporado al `array` de planes existentes en `src/data/plans.ts`:
+Finalmente, el objeto del plan debe ser incorporado al `array` de planes existentes en `src/data/plans.ts`:
 
 ```ts
 /* ... */
@@ -161,7 +161,7 @@ import { codigoDelPlan } from "./codigoDelPlan";
 export const plans = [codigoDelPlan /*, Otros planes según corresponda*/];
 ```
 
-La incorporación del plan de estudio en cuestión se verá reflejada en la aplicación mediante una nueva `Route`, siendo la misma seleccionable desde el `Select` de planes de estudio:
+La incorporación del plan de estudio al `array` se verá reflejada en la aplicación mediante una nueva `Route`, siendo la misma seleccionable desde el `Select` de planes de estudio:
 
 <p align="center">
   <img src="https://github.com/jlsuh/utn-flowchart/assets/38252227/9329e986-0b66-4d95-bd14-9837aac545f0">
