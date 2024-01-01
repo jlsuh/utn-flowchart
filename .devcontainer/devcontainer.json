@@ -7,10 +7,8 @@
     "dockerfile": "../Dockerfile",
     "target": "dev"
   },
-
   "workspaceFolder": "/app",
   "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
-
   "customizations": {
     "vscode": {
       "settings": {
@@ -27,9 +25,7 @@
         "eslint.codeActionsOnSave.mode": "all",
         "eslint.run": "onSave"
       },
-      "extensions": [
-        "dbaeumer.vscode-eslint"
-      ]
+      "extensions": ["dbaeumer.vscode-eslint"]
     }
   },
   "remoteUser": "node"
