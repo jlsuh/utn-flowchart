@@ -71,7 +71,6 @@ const plan2 = {
 };
 const contextPlanValue: PlanContextProps = {
   contextPlan,
-  setContextPlan: () => {},
   updateMode: () => {},
   updateStatuses: () => {},
 };

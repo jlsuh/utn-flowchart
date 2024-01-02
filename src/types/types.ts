@@ -20,7 +20,6 @@ export interface Plan {
 
 export interface PlanContextProps {
   contextPlan: Plan;
-  setContextPlan: (plan: Plan) => void;
   updateMode: (subjectId: string, newMode: string) => void;
   updateStatuses: (subjects: Subject[], newStatus: Status) => void;
 }

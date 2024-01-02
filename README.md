@@ -21,10 +21,19 @@ Para cada materia, es posible elegir tanto los _estados_ como la _modalidad de c
 ### Modalidades de cursada
 
 - **Anual**: Cursada anual. El nodo asociado posee la forma de un rectángulo.
-- **Cuatrimestral**: Cursada cuatrimestral. El nodo asociado posee la forma de un óvalo.
+- **Cuatrimestral**: Cursada cuatrimestral. El nodo asociado posee la forma de una elipse.
 
 <p align="center">
   <img src="https://github.com/jlsuh/utn-flowchart/assets/38252227/345f01a4-a159-4cbb-ad1f-f34effeef077">
+</p>
+
+### Correlativas de materias
+
+- **Cursada**: La materia origen debe estar **firmada, "regularizada" o bien con final pendiente** para poder cursar la materia destino. La arista asociada es de trazo discontinuo.
+- **Aprobada**: La materia origen debe estar **aprobada** para poder cursar la materia destino. La arista asociada es de trazo continuo.
+
+<p align="center">
+  <img src="https://github.com/jlsuh/utn-flowchart/assets/38252227/7f9d26d3-806d-46e7-b2d7-83783a6d69e6">
 </p>
 
 ### Generación del digrafo
@@ -41,7 +50,7 @@ Es posible exportar el digrafo en formato SVG haciendo click en "Exportar".
 
 Es posible levantar la aplicación localmente mediante Docker. La imagen del contenedor es obtenible de las siguientes formas estipuladas.
 
-### Obtener la imagen a partir del repositorio:
+### Obtener la imagen a partir del repositorio
 
 Luego de clonar el repositorio, posicionarse en el directorio raíz del proyecto y ejecutar:
 
@@ -49,7 +58,7 @@ Luego de clonar el repositorio, posicionarse en el directorio raíz del proyecto
 docker build -t utn-flowchart .
 ```
 
-### Obtener la imagen de Docker Hub:
+### Obtener la imagen de Docker Hub
 
 La misma es obtenible mediante:
 

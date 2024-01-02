@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { PlanContext } from "./context";
 import { plans } from "./data";
 import { PlanPage } from "./pages";
-import { Plan, PlanContextProps } from "./types/types";
+import { PlanContextProps } from "./types/types";
 
 export default function AppRouter() {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
@@ -12,11 +12,7 @@ export default function AppRouter() {
   return (
     <Routes>
       {plans.map((plan) => (
-        <Route
-          key={plan.id}
-          path={`/${plan.id}`}
-          element={<PlanPage plan={plan as unknown as Plan} />}
-        />
+        <Route key={plan.id} path={`/${plan.id}`} element={<PlanPage />} />
       ))}
       <Route path="/" element={<Navigate to={`/${id}`} />} />
       <Route path="*" element={<Navigate to={`/${id}`} />} />

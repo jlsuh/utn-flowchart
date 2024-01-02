@@ -102,7 +102,6 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     <PlanContext.Provider
       value={{
         contextPlan,
-        setContextPlan,
         updateMode,
         updateStatuses,
       }}
