@@ -9,7 +9,7 @@ import { planTypes } from "./planTypes";
 const DEFAULT_PLAN = plans[0] as unknown as Plan;
 const SUBJECTS_KEY = "subjects";
 
-const getInitialPlan = (plan: Plan) => {
+const getPlan = (plan: Plan) => {
   const initialSubjects = (plan.subjects as Subject[])
     .flat()
     .reduce((acc: Record<string, Subject>, subject: Subject) => {
@@ -36,7 +36,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   const [contextPlan, dispatch] = useReducer(
     planReducer,
-    getInitialPlan(DEFAULT_PLAN) as Plan,
+    getPlan(DEFAULT_PLAN) as Plan,
     initializer,
   );
   const currentPlan = plans.find(
@@ -55,7 +55,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const setContextPlan = (plan: Plan) => {
-    const newPlan = getInitialPlan(plan) as Plan;
+    const newPlan = getPlan(plan) as Plan;
     updatePlan(newPlan);
   };
 
