@@ -10,15 +10,16 @@ const DEFAULT_PLAN = plans[0] as unknown as Plan;
 const SUBJECTS_KEY = "subjects";
 
 const getPlan = (plan: Plan) => {
-  const initialSubjects = (plan.subjects as Subject[])
-    .flat()
-    .reduce((acc: Record<string, Subject>, subject: Subject) => {
-      acc[subject.id!] = {
+  const initialSubjects = (plan.subjects as Subject[]).flat().reduce(
+    (acc, subject: Subject) => ({
+      ...acc,
+      [subject.id!]: {
         modes: subject.modes,
         status: statuses.PENDING,
-      };
-      return acc;
-    }, {});
+      },
+    }),
+    {},
+  );
   return {
     subjects: initialSubjects,
     id: plan.id,
