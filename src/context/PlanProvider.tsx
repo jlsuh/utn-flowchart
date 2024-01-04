@@ -39,7 +39,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     getInitialPlan(DEFAULT_PLAN) as Plan,
     initializer,
   );
-  const plan = plans.find(
+  const currentPlan = plans.find(
     (plan) => plan.id === location.pathname.slice(1),
   ) as unknown as Plan;
 
@@ -59,8 +59,8 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     updatePlan(newPlan);
   };
 
-  if (!!plan && plan.id !== contextPlan.id) {
-    setContextPlan(plan);
+  if (!!currentPlan && currentPlan.id !== contextPlan.id) {
+    setContextPlan(currentPlan);
   }
 
   const updateMode = (subjectId: string, newMode: string) => {
