@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useReducer } from "react";
+import { ReactNode, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
 import { plans, statuses } from "../data";
@@ -9,18 +9,19 @@ import { planTypes } from "./planTypes";
 const DEFAULT_PLAN = plans[0] as unknown as Plan;
 const SUBJECTS_KEY = "subjects";
 
-const getInitialPlan = (plan: Plan) => {
-  const initialSubjects = (plan.subjects as Subject[])
-    .flat()
-    .reduce((acc: Record<string, Subject>, subject: Subject) => {
-      acc[subject.id!] = {
+const getFlattenedPlan = (plan: Plan) => {
+  const flattenedSubjects = (plan.subjects as Subject[]).flat().reduce(
+    (acc, subject: Subject) => ({
+      ...acc,
+      [subject.id!]: {
         modes: subject.modes,
         status: statuses.PENDING,
-      };
-      return acc;
-    }, {});
+      },
+    }),
+    {},
+  );
   return {
-    subjects: initialSubjects,
+    subjects: flattenedSubjects,
     id: plan.id,
   };
 };
@@ -36,14 +37,32 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   const [contextPlan, dispatch] = useReducer(
     planReducer,
-    getInitialPlan(DEFAULT_PLAN) as Plan,
+    getFlattenedPlan(DEFAULT_PLAN) as Plan,
     initializer,
   );
+  const currentPlan = plans.find(
+    (plan) => plan.id === location.pathname.slice(1),
+  ) as unknown as Plan;
 
-  const setContextPlan = useCallback((plan: Plan) => {
-    const newPlan = getInitialPlan(plan) as Plan;
+  const updatePlan = (newPlan: Plan) => {
+    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));
+    const action = {
+      type: planTypes.updatePlan,
+      payload: {
+        newPlan,
+      },
+    };
+    dispatch(action);
+  };
+
+  const setContextPlan = (plan: Plan) => {
+    const newPlan = getFlattenedPlan(plan) as Plan;
     updatePlan(newPlan);
-  }, []);
+  };
+
+  if (!!currentPlan && currentPlan.id !== contextPlan.id) {
+    setContextPlan(currentPlan);
+  }
 
   const updateMode = (subjectId: string, newMode: string) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
@@ -77,26 +96,6 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     };
     updatePlan(newPlan);
   };
-
-  const updatePlan = (newPlan: Plan) => {
-    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));
-    const action = {
-      type: planTypes.updatePlan,
-      payload: {
-        newPlan,
-      },
-    };
-    dispatch(action);
-  };
-
-  useEffect(() => {
-    const plan = plans.find(
-      (plan) => plan.id === location.pathname.slice(1),
-    ) as unknown as Plan;
-    if (!!plan && plan.id !== contextPlan.id) {
-      setContextPlan(plan);
-    }
-  }, [location.pathname, contextPlan.id, setContextPlan]);
 
   return (
     <PlanContext.Provider
