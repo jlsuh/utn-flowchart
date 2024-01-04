@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useReducer } from "react";
+import { ReactNode, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
 import { plans, statuses } from "../data";
@@ -39,11 +39,29 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     getInitialPlan(DEFAULT_PLAN) as Plan,
     initializer,
   );
+  const plan = plans.find(
+    (plan) => plan.id === location.pathname.slice(1),
+  ) as unknown as Plan;
 
-  const setContextPlan = useCallback((plan: Plan) => {
+  const updatePlan = (newPlan: Plan) => {
+    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));
+    const action = {
+      type: planTypes.updatePlan,
+      payload: {
+        newPlan,
+      },
+    };
+    dispatch(action);
+  };
+
+  const setContextPlan = (plan: Plan) => {
     const newPlan = getInitialPlan(plan) as Plan;
     updatePlan(newPlan);
-  }, []);
+  };
+
+  if (!!plan && plan.id !== contextPlan.id) {
+    setContextPlan(plan);
+  }
 
   const updateMode = (subjectId: string, newMode: string) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
@@ -77,26 +95,6 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     };
     updatePlan(newPlan);
   };
-
-  const updatePlan = (newPlan: Plan) => {
-    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));
-    const action = {
-      type: planTypes.updatePlan,
-      payload: {
-        newPlan,
-      },
-    };
-    dispatch(action);
-  };
-
-  useEffect(() => {
-    const plan = plans.find(
-      (plan) => plan.id === location.pathname.slice(1),
-    ) as unknown as Plan;
-    if (!!plan && plan.id !== contextPlan.id) {
-      setContextPlan(plan);
-    }
-  }, [location.pathname, contextPlan.id, setContextPlan]);
 
   return (
     <PlanContext.Provider
