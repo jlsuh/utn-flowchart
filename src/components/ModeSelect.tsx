@@ -9,11 +9,11 @@ export const ModeSelect = ({ subject }: { subject: Subject }) => {
   const targetSubject = contextPlan.subjects[
     subject.id as keyof typeof contextPlan.subjects
   ] as Subject;
-  const contextMode = targetSubject.modes![0];
+  const contextMode = targetSubject.modes[0];
 
   const onSelectInputChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const newMode = JSON.parse(event.target.value);
-    updateMode(subject.id!, newMode);
+    updateMode(subject.id, newMode);
   };
 
   return (
@@ -29,7 +29,7 @@ export const ModeSelect = ({ subject }: { subject: Subject }) => {
         onChange={onSelectInputChange}
         value={JSON.stringify(contextMode)}
       >
-        {subject.modes!.map((mode) => (
+        {subject?.modes?.map((mode) => (
           <option
             key={`${replaceWhiteSpace(`${subject.id}-${mode}`)}`}
             value={JSON.stringify(mode)}

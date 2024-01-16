@@ -14,7 +14,7 @@ export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
   const { contextPlan, updateStatuses } =
     useContext<PlanContextProps>(PlanContext);
   const contextStatus = (contextPlan.subjects as Record<string, Subject>)[
-    subject.id!
+    subject.id
   ].status;
 
   const handleChangeRadioInput = (event: ChangeEvent<HTMLInputElement>) => {

@@ -10,11 +10,11 @@ import { SubjectGrid } from "./SubjectGrid";
 export const SubjectStack = () => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const plan = findPlanById(contextPlan.id);
-  const subjectsByLevel = plan!.subjects;
+  const subjectsByLevel = plan?.subjects;
 
   return (
     <Stack spacing={3}>
-      {subjectsByLevel.map((levelSubjects, index) => (
+      {subjectsByLevel?.map((levelSubjects, index) => (
         <Grid
           container
           key={`level-${index + 1}-grid`}

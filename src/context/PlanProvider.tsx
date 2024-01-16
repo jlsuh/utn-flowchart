@@ -13,7 +13,7 @@ const getFlattenedPlan = (plan: Plan) => {
   const flattenedSubjects = (plan.subjects as Subject[]).flat().reduce(
     (acc, subject: Subject) => ({
       ...acc,
-      [subject.id!]: {
+      [subject.id]: {
         modes: subject.modes,
         status: statuses.PENDING,
       },
@@ -85,8 +85,8 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   const updateStatuses = (subjects: Subject[], newStatus: Status) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
     subjects.forEach((subject) => {
-      newSubjects[subject.id!] = {
-        ...newSubjects[subject.id!],
+      newSubjects[subject.id] = {
+        ...newSubjects[subject.id],
         status: newStatus,
       };
     });

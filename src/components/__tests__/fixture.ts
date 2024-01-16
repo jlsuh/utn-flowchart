@@ -14,10 +14,12 @@ const contextPlan: Plan = {
   branch: "planBranch-1",
   subjects: {
     [id1]: {
+      id: id1,
       status: statuses.PENDING,
       modes: [modes.ANNUAL],
     },
     [id2]: {
+      id: id2,
       status: statuses.PENDING,
       modes: [modes.ANNUAL],
     },
