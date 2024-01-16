@@ -34,14 +34,14 @@ export class Digraph {
       (subject) =>
         (
           this.contextSubjects[
-            subject.id! as keyof typeof this.contextSubjects
+            subject?.id as keyof typeof this.contextSubjects
           ] as Subject
         ).status.name !== statuses.PASSED.name,
     );
   }
 
   private findSubjectById = (target: string) => {
-    return this.allSubjects.find((subject: Subject) => subject.id === target)!;
+    return this.allSubjects.find((subject) => subject.id === target)!;
   };
 
   private mapToSubjects(subjectsIds: string[]) {
@@ -101,9 +101,7 @@ export class Digraph {
       this.appendOpening();
       this.appendString("rank=same");
       this.appendOpening();
-      const subjectNames = levelSubjects.map(
-        (subject: Subject) => subject.name!,
-      );
+      const subjectNames = levelSubjects.map((subject) => subject.name!);
       this.appendSubjectNames(subjectNames);
       this.appendClosing();
       this.appendClosing();
@@ -140,15 +138,15 @@ export class Digraph {
       id as keyof typeof this.contextSubjects
     ] as Subject;
     const nodeOptions = [`style="filled"fillcolor="${status.color}"`];
-    if (subjectModes![0] === modes.ANNUAL) {
+    if (subjectModes[0] === modes.ANNUAL) {
       nodeOptions.push(`${options.annualSubject}`);
     }
     this.appendString(this.getJoinedOptions(nodeOptions));
   }
 
   private appendDependencies(nonPassedLevelSubjects: Subject[]) {
-    nonPassedLevelSubjects.forEach((nonPassedSubject: Subject) => {
-      this.appendNodeOptions(nonPassedSubject.name!, nonPassedSubject.id!);
+    nonPassedLevelSubjects.forEach((nonPassedSubject) => {
+      this.appendNodeOptions(nonPassedSubject.name!, nonPassedSubject.id);
       this.appendTakenDependencies(nonPassedSubject);
       this.appendPassedDependencies(nonPassedSubject);
     });
@@ -161,7 +159,7 @@ export class Digraph {
   }
 
   private appendTransitions() {
-    this.subjectsByLevel.forEach((levelSubjects: Subject[]) => {
+    this.subjectsByLevel.forEach((levelSubjects) => {
       this.appendNonPassedSubjects(levelSubjects);
     });
   }

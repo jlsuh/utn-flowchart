@@ -45,7 +45,7 @@ describe(`<${Subject.name} /> Tests`, () => {
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
-    const combobox = screen.getByRole(comboBoxRole) as HTMLInputElement;
+    const combobox: HTMLInputElement = screen.getByRole(comboBoxRole);
     expect(combobox.value).toBe(JSON.stringify(modes.ANNUAL));
   });
 
@@ -85,7 +85,7 @@ describe(`<${Subject.name} /> Tests`, () => {
         <Subject subject={subject} />
       </PlanContext.Provider>,
     );
-    const inputs = screen.getAllByRole(radioRole) as HTMLInputElement[];
+    const inputs: HTMLInputElement[] = screen.getAllByRole(radioRole);
     expect(inputs[0].checked).toBeTruthy();
   });
 

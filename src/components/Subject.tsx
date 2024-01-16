@@ -16,7 +16,7 @@ export const Subject = ({ subject }: { subject: SubjectProps }) => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const { subjects } = contextPlan;
   const contextSubject = subjects[
-    subject.id! as keyof typeof subjects
+    subject.id as keyof typeof subjects
   ] as SubjectProps;
 
   return (
