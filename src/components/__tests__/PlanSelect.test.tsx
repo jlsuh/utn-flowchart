@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import { PlanContext } from "../../context";
@@ -19,7 +20,8 @@ describe(`<${PlanSelect.name} /> Tests`, () => {
   const comboboxRole = "combobox";
   const optionRole = "option";
 
-  it("should navigate on select change", () => {
+  it("should navigate on select change", async () => {
+    const user = userEvent.setup();
     render(
       <MemoryRouter initialEntries={[`/${planId1}`]}>
         <PlanContext.Provider value={contextPlanValue}>
@@ -28,9 +30,9 @@ describe(`<${PlanSelect.name} /> Tests`, () => {
       </MemoryRouter>,
     );
     const button = screen.getByRole(comboboxRole);
-    fireEvent.mouseDown(button);
+    await user.click(button);
     const menuItems = screen.getAllByRole(optionRole);
-    fireEvent.click(menuItems[1]);
+    await user.click(menuItems[1]);
     expect(mockedUseNavigate).toHaveBeenCalledWith(`/${planId2}`, {
       replace: true,
     });
