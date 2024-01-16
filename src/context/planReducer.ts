@@ -8,7 +8,7 @@ interface PlanAction {
   };
 }
 
-export const planReducer = (state = {} as Plan, action: PlanAction): Plan => {
+export const planReducer = (state = {} as Plan, action: PlanAction) => {
   switch (action.type) {
     case planTypes.updatePlan:
       return action.payload.newPlan;
