@@ -1,15 +1,23 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Subject } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { modes, statuses } from "../../data/constants";
 import { contextPlanValue, subject } from "./fixture";
+import userEvent from "@testing-library/user-event";
 
 describe(`<${Subject.name} /> Tests`, () => {
   const comboBoxRole = "combobox";
   const optionRole = "option";
   const radioGroupRole = "radiogroup";
   const radioRole = "radio";
+
+  const mockedUpdateStatuses = vi.fn();
+  const mockedUpdateMode = vi.fn();
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
   it("should render card with subject name", () => {
     render(
@@ -41,8 +49,8 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(combobox.value).toBe(JSON.stringify(modes.ANNUAL));
   });
 
-  it("should invoke updateMode on select input change", () => {
-    const mockedUpdateMode = vi.fn();
+  it("should invoke updateMode on select input change", async () => {
+    const user = userEvent.setup();
     render(
       <PlanContext.Provider
         value={{
@@ -54,9 +62,7 @@ describe(`<${Subject.name} /> Tests`, () => {
       </PlanContext.Provider>,
     );
     const combobox = screen.getAllByRole(comboBoxRole)[0];
-    fireEvent.change(combobox, {
-      target: { value: JSON.stringify(modes.QUADRIMESTRAL) },
-    });
+    await user.selectOptions(combobox, JSON.stringify(modes.QUADRIMESTRAL));
     expect(mockedUpdateMode).toHaveBeenCalledWith(
       subject.id,
       modes.QUADRIMESTRAL,
@@ -83,8 +89,8 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(inputs[0].checked).toBeTruthy();
   });
 
-  it("should invoke updateStatuses on radio group change", () => {
-    const mockedUpdateStatuses = vi.fn();
+  it("should invoke updateStatuses on radio group change", async () => {
+    const user = userEvent.setup();
     render(
       <PlanContext.Provider
         value={{
@@ -96,7 +102,7 @@ describe(`<${Subject.name} /> Tests`, () => {
       </PlanContext.Provider>,
     );
     const inputs = screen.getAllByRole(radioRole);
-    fireEvent.click(inputs[1]);
+    await user.click(inputs[1]);
     expect(mockedUpdateStatuses).toHaveBeenCalledWith(
       [subject],
       statuses.IN_PROGRESS,

@@ -1,10 +1,11 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
 import { SubjectStack } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { statuses } from "../../data/constants";
 import { findPlanById } from "../../utils";
 import { contextPlanValue, plan1 } from "./fixture";
+import { userEvent } from "@testing-library/user-event";
 
 vi.mock("../../../src/utils/findPlanById", () => ({
   findPlanById: vi.fn(),
@@ -13,6 +14,8 @@ vi.mock("../../../src/utils/findPlanById", () => ({
 describe(`<${SubjectStack.name} /> Tests`, () => {
   const buttonRole = "button";
   const headingRole = "heading";
+
+  const mockedUpdateStatuses = vi.fn();
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -43,8 +46,8 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     );
   });
 
-  it("should invoke updateSubject on status marker click", () => {
-    const mockedUpdateStatuses = vi.fn();
+  it("should invoke updateSubject on status marker click", async () => {
+    const user = userEvent.setup();
     render(
       <PlanContext.Provider
         value={{
@@ -56,7 +59,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
       </PlanContext.Provider>,
     );
     const statusMarkers = screen.getAllByRole(buttonRole);
-    fireEvent.click(statusMarkers[3]);
+    await user.click(statusMarkers[3]);
     expect(mockedUpdateStatuses).toHaveBeenCalledWith(
       plan1.subjects[0],
       statuses.PASSED,
