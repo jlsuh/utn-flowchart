@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
 import { SubjectStack } from "..";
 import { PlanContext } from "../../context/PlanContext";
 import { statuses } from "../../data/constants";
 import { findPlanById } from "../../utils";
 import { contextPlanValue, plan1 } from "./fixture";
-import { userEvent } from "@testing-library/user-event";
 
 vi.mock("../../../src/utils/findPlanById", () => ({
   findPlanById: vi.fn(),

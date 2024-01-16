@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import { PlanContext } from "../../context";
 import { PlanSelect } from "../PlanSelect";
 import { contextPlanValue, plan1, plan2, planId1, planId2 } from "./fixture";
-import userEvent from "@testing-library/user-event";
 
 const mockedUseNavigate = vi.fn();
 
