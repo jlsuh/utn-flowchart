@@ -2,19 +2,19 @@ import { modes, options, statuses } from "../data";
 import { Subject } from "../types/types";
 
 export class Digraph {
-  private allSubjects: Subject[];
-  private contextSubjects: Record<string, Subject> | Subject[];
+  private readonly allSubjects: Subject[];
+  private readonly contextSubjects: Record<string, Subject>;
+  private readonly subjectsByLevel: Subject[][];
   private digraph: string;
-  private subjectsByLevel: Subject[][];
 
   constructor(
-    contextSubjects: Record<string, Subject> | Subject[],
+    contextSubjects: Record<string, Subject>,
     subjectsByLevel: Subject[][],
   ) {
     this.allSubjects = subjectsByLevel.flat();
     this.contextSubjects = contextSubjects;
-    this.digraph = "";
     this.subjectsByLevel = subjectsByLevel;
+    this.digraph = "";
   }
 
   public generate() {
@@ -32,11 +32,8 @@ export class Digraph {
   private filterNonPassedSubjects(subjects: Subject[]) {
     return subjects.filter(
       (subject) =>
-        (
-          this.contextSubjects[
-            subject.id as keyof typeof this.contextSubjects
-          ] as Subject
-        ).status.name !== statuses.PASSED.name,
+        this.contextSubjects[subject.id as keyof typeof this.contextSubjects]
+          .status.name !== statuses.PASSED.name,
     );
   }
 
@@ -134,9 +131,8 @@ export class Digraph {
 
   private appendNodeOptions(name: string, id: string) {
     this.appendSubjectNames([name]);
-    const { status, modes: subjectModes } = this.contextSubjects[
-      id as keyof typeof this.contextSubjects
-    ] as Subject;
+    const { status, modes: subjectModes } =
+      this.contextSubjects[id as keyof typeof this.contextSubjects];
     const nodeOptions = [`style="filled"fillcolor="${status.color}"`];
     if (subjectModes[0] === modes.ANNUAL) {
       nodeOptions.push(`${options.annualSubject}`);

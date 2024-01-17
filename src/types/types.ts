@@ -1,25 +1,25 @@
 export interface Status {
-  color: string;
-  name: string;
+  readonly color: string;
+  readonly name: string;
 }
 
 export interface Subject {
-  id: string;
-  modes: string[];
-  name: string;
-  status: Status;
-  taken: string[];
-  passed: string[];
+  readonly id: string;
+  readonly modes: string[];
+  readonly name: string;
+  readonly passed: string[];
+  readonly status: Status;
+  readonly taken: string[];
 }
 
 export interface Plan {
-  id: string;
-  branch: string;
-  subjects: Record<string, Subject>;
+  readonly id: string;
+  readonly branch: string;
+  readonly subjects: Record<string, Subject>;
 }
 
 export interface PlanContextProps {
-  contextPlan: Plan;
-  updateMode: (subjectId: string, newMode: string) => void;
-  updateStatuses: (subjects: Subject[], newStatus: Status) => void;
+  readonly contextPlan: Plan;
+  readonly updateMode: (subjectId: string, newMode: string) => void;
+  readonly updateStatuses: (subjects: Subject[], newStatus: Status) => void;
 }

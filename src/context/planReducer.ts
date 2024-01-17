@@ -2,13 +2,13 @@ import { Plan } from "../types/types";
 import { planTypes } from "./planTypes";
 
 interface PlanAction {
-  type: string;
-  payload: {
-    newPlan: Plan;
+  readonly type: string;
+  readonly payload: {
+    readonly newPlan: Plan;
   };
 }
 
-export const planReducer = (state = {} as Plan, action: PlanAction) => {
+export const planReducer = (state: Plan, action: PlanAction) => {
   switch (action.type) {
     case planTypes.updatePlan:
       return action.payload.newPlan;

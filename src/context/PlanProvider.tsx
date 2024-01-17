@@ -23,13 +23,14 @@ const getFlattenedPlan = (plan: Plan) => {
       {},
     );
   return {
-    subjects: flattenedSubjects,
+    branch: plan.branch,
     id: plan.id,
+    subjects: flattenedSubjects,
   };
 };
 
 const initializer = (initialArg: Plan) => {
-  const subjects = JSON.parse(localStorage.getItem(SUBJECTS_KEY) as string);
+  const subjects = JSON.parse(localStorage.getItem(SUBJECTS_KEY)!);
   if (subjects) return subjects;
   localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
   return initialArg;
@@ -39,7 +40,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   const [contextPlan, dispatch] = useReducer(
     planReducer,
-    getFlattenedPlan(DEFAULT_PLAN) as Plan,
+    getFlattenedPlan(DEFAULT_PLAN),
     initializer,
   );
   const currentPlan = plans.find(
@@ -57,13 +58,9 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     dispatch(action);
   };
 
-  const setContextPlan = (plan: Plan) => {
-    const newPlan = getFlattenedPlan(plan) as Plan;
-    updatePlan(newPlan);
-  };
-
   if (!!currentPlan && currentPlan.id !== contextPlan.id) {
-    setContextPlan(currentPlan);
+    const newPlan = getFlattenedPlan(currentPlan);
+    updatePlan(newPlan);
   }
 
   const updateMode = (subjectId: string, newMode: string) => {
