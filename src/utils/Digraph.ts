@@ -32,8 +32,7 @@ export class Digraph {
   private filterNonPassedSubjects(subjects: Subject[]) {
     return subjects.filter(
       (subject) =>
-        this.contextSubjects[subject.id as keyof typeof this.contextSubjects]
-          .status.name !== statuses.PASSED.name,
+        this.contextSubjects[subject.id].status?.name !== statuses.PASSED.name,
     );
   }
 
@@ -131,9 +130,8 @@ export class Digraph {
 
   private appendNodeOptions(name: string, id: string) {
     this.appendSubjectNames([name]);
-    const { status, modes: subjectModes } =
-      this.contextSubjects[id as keyof typeof this.contextSubjects];
-    const nodeOptions = [`style="filled"fillcolor="${status.color}"`];
+    const { status, modes: subjectModes } = this.contextSubjects[id];
+    const nodeOptions = [`style="filled"fillcolor="${status?.color}"`];
     if (subjectModes[0] === modes.ANNUAL) {
       nodeOptions.push(`${options.annualSubject}`);
     }

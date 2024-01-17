@@ -15,7 +15,8 @@ import { StatusRadioGroup } from "./StatusRadioGroup";
 export const Subject = ({ subject }: { subject: SubjectProps }) => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const { subjects } = contextPlan;
-  const contextSubject = subjects[subject.id as keyof typeof subjects];
+  const contextSubject = subjects[subject.id];
+  const color = contextSubject.status?.color;
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -44,7 +45,7 @@ export const Subject = ({ subject }: { subject: SubjectProps }) => {
             sx={{
               fontSize: 24,
               ml: 1,
-              color: contextSubject.status.color,
+              color,
             }}
           />
         </CardContent>

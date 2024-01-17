@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import { useContext } from "react";
 import { PlanContext } from "../context";
 import { statuses } from "../data";
-import { PlanContextProps, Subject } from "../types/types";
+import { PlanContextProps } from "../types/types";
 import { findPlanById, replaceWhiteSpace } from "../utils";
 import { StatusMarker } from "./StatusMarker";
 import { SubjectGrid } from "./SubjectGrid";
@@ -14,47 +14,48 @@ export const SubjectStack = () => {
 
   return (
     <Stack spacing={3}>
-      {subjectsByLevel?.map((levelSubjects, index) => (
-        <Grid
-          container
-          key={`level-${index + 1}-grid`}
-          sx={{
-            flexDirection: "column",
-          }}
-        >
+      {Array.isArray(subjectsByLevel) &&
+        subjectsByLevel.map((levelSubjects, index) => (
           <Grid
-            item
+            container
+            key={`level-${index + 1}-grid`}
             sx={{
-              alignItems: "baseline",
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
+              flexDirection: "column",
             }}
           >
-            <Box>
-              <Typography variant="h3" sx={{ ml: 1 }}>
-                {index + 1}° año
-              </Typography>
-            </Box>
             <Grid
               item
-              sx={{ display: "flex", flexWrap: "wrap", userSelect: "none" }}
+              sx={{
+                alignItems: "baseline",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+              }}
             >
-              <Typography sx={{ mr: 0.5 }}>Marcar a todas como:</Typography>
-              {Object.values(statuses).map((status) => (
-                <StatusMarker
-                  key={`${replaceWhiteSpace(
-                    `${status.name}-status-marker-${index}`,
-                  )}`}
-                  status={status}
-                  levelSubjects={levelSubjects as Subject[]}
-                />
-              ))}
+              <Box>
+                <Typography variant="h3" sx={{ ml: 1 }}>
+                  {index + 1}° año
+                </Typography>
+              </Box>
+              <Grid
+                item
+                sx={{ display: "flex", flexWrap: "wrap", userSelect: "none" }}
+              >
+                <Typography sx={{ mr: 0.5 }}>Marcar a todas como:</Typography>
+                {Object.values(statuses).map((status) => (
+                  <StatusMarker
+                    key={`${replaceWhiteSpace(
+                      `${status.name}-status-marker-${index}`,
+                    )}`}
+                    status={status}
+                    levelSubjects={levelSubjects}
+                  />
+                ))}
+              </Grid>
             </Grid>
+            <SubjectGrid levelSubjects={levelSubjects} />
           </Grid>
-          <SubjectGrid levelSubjects={levelSubjects as Subject[]} />
-        </Grid>
-      ))}
+        ))}
     </Stack>
   );
 };

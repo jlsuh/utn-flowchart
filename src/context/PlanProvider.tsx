@@ -2,14 +2,14 @@ import { ReactNode, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
 import { plans, statuses } from "../data";
-import { Plan, Status, Subject } from "../types/types";
+import { DataPlan, Plan, Status, Subject } from "../types/types";
 import { planReducer } from "./planReducer";
 import { planTypes } from "./planTypes";
 
-const DEFAULT_PLAN = plans[0] as unknown as Plan;
+const DEFAULT_PLAN = plans[0];
 const SUBJECTS_KEY = "subjects";
 
-const getFlattenedPlan = (plan: Plan) => {
+const getFlattenedPlan = (plan: DataPlan) => {
   const flattenedSubjects = Object.values(plan.subjects)
     .flat()
     .reduce(
@@ -45,7 +45,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
   );
   const currentPlan = plans.find(
     (plan) => plan.id === location.pathname.slice(1),
-  ) as unknown as Plan;
+  );
 
   const updatePlan = (newPlan: Plan) => {
     localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));

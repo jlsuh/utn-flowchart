@@ -6,7 +6,11 @@ import { composeSVGObjectURL } from "../utils";
 
 const continuation = (svg: SVGElement) => {
   const url = composeSVGObjectURL(svg);
-  const newWindow = open(url);
+  const newWindow =
+    open(url) ??
+    (() => {
+      throw new Error("Failed to open resource");
+    })();
   newWindow!.onload = () => URL.revokeObjectURL(url);
 };
 
