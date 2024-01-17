@@ -82,12 +82,12 @@ docker run --rm -dp 80:80 jlsuh/utn-flowchart
 
 La aplicación ejecutará en `localhost:80`.
 
-## Contribuciones
+## Incorporación de nuevos planes de estudio
 
-La extensibilidad de la aplicación se prevé mediante la incorporación de nuevos planes de estudio. Cada plan de estudio debe ser agregado en el directorio `src/data/<codigoDelPlan>` como un archivo que exporte un único `object`. El mismo debe ser de la forma:
+Cada plan de estudio debe ser agregado en el directorio `src/data/<codigoDelPlan>.ts` como un archivo que exporte un único `object`. El mismo debe ser de la forma:
 
 ```ts
-export const codigoDelPlan = {
+export const codigoDelPlan: DataPlan = {
   id: "codigoDelPlan",
   branch: "codigoDeLaRegional",
   subjects: [
@@ -157,9 +157,9 @@ export const codigoDelPlan = {
 
 **Observaciones**:
 
-- El orden de las modalidades de cursada en el `array` `modes` debe ser según el aspecto "por defecto" bajo la cual la regional ofrece como modalidad de cursada de la materia. Por ejemplo, si la materia se ofrece principalmente en forma anual, siendo en forma secundaria cuatrimestral, el orden correcto es: `[modes.ANNUAL, modes.QUADRIMESTRAL]`.
-- El `array` `taken` contiene los `id` de las materias que son requisito para poder **cursar la materia en cuestión**.
-- El `array` `passed` contiene los `id` de las materias que son requisito para poder **aprobar la materia en cuestión**.
+- El orden de las modalidades de cursada en el `array` `modes` debe ser según el aspecto "por defecto" bajo la cual la regional ofrezca dicha materia. Ejemplo: Si la materia se ofrece principalmente en forma anual, siendo en forma secundaria cuatrimestral, el orden correcto es: `[modes.ANNUAL, modes.QUADRIMESTRAL]`.
+- El `array` `taken` contiene los `id`s de las materias que son requisito para poder **cursar la materia en cuestión**.
+- El `array` `passed` contiene los `id`s de las materias que son requisito para poder **aprobar la materia en cuestión**.
 
 Finalmente, el objeto del plan debe ser incorporado al `array` de planes existentes en `src/data/plans.ts`:
 
@@ -170,7 +170,7 @@ import { codigoDelPlan } from "./codigoDelPlan";
 export const plans = [codigoDelPlan /*, Otros planes según corresponda*/];
 ```
 
-La incorporación del plan de estudio al `array` se verá reflejada en la aplicación mediante una nueva `Route`, siendo la misma seleccionable desde el `Select` de planes de estudio:
+La incorporación del plan de estudio al `array` se verá reflejada en la aplicación mediante una nueva `Route`, siendo la misma navegable desde el `Select` de planes de estudio:
 
 <p align="center">
   <img src="https://github.com/jlsuh/utn-flowchart/assets/38252227/9329e986-0b66-4d95-bd14-9837aac545f0">
