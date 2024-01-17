@@ -8,6 +8,7 @@ const id4 = "subject-4";
 const planId1 = "plan-1";
 const planId2 = "plan-2";
 const subjectName1 = "Subject 1";
+const subjectName2 = "Subject 2";
 
 const contextPlan: Plan = {
   id: planId1,
@@ -15,13 +16,19 @@ const contextPlan: Plan = {
   subjects: {
     [id1]: {
       id: id1,
-      status: statuses.PENDING,
       modes: [modes.ANNUAL],
+      name: subjectName1,
+      passed: [],
+      status: statuses.PENDING,
+      taken: [],
     },
     [id2]: {
       id: id2,
-      status: statuses.PENDING,
       modes: [modes.ANNUAL],
+      name: subjectName2,
+      passed: [],
+      status: statuses.PENDING,
+      taken: [],
     },
   },
 };
@@ -29,7 +36,9 @@ const subject = {
   id: id1,
   modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
   name: subjectName1,
+  passed: [],
   status: statuses.PENDING,
+  taken: [],
 };
 const plan1 = {
   branch: "planBranch-1",

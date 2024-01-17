@@ -34,7 +34,7 @@ export class Digraph {
       (subject) =>
         (
           this.contextSubjects[
-            subject?.id as keyof typeof this.contextSubjects
+            subject.id as keyof typeof this.contextSubjects
           ] as Subject
         ).status.name !== statuses.PASSED.name,
     );
@@ -80,7 +80,7 @@ export class Digraph {
   }
 
   private appendDependenciesNames(dependencies: Subject[]) {
-    this.appendSubjectNames(dependencies.map((subject) => subject.name!));
+    this.appendSubjectNames(dependencies.map((subject) => subject.name));
   }
 
   private appendDependenciesWithOptions(
@@ -92,7 +92,7 @@ export class Digraph {
     this.appendDependenciesNames(dependencies);
     this.appendClosing();
     this.appendString("->");
-    this.appendSubjectNames([subject.name!]);
+    this.appendSubjectNames([subject.name]);
     this.appendString(this.getJoinedOptions(options));
   }
 
@@ -101,7 +101,7 @@ export class Digraph {
       this.appendOpening();
       this.appendString("rank=same");
       this.appendOpening();
-      const subjectNames = levelSubjects.map((subject) => subject.name!);
+      const subjectNames = levelSubjects.map((subject) => subject.name);
       this.appendSubjectNames(subjectNames);
       this.appendClosing();
       this.appendClosing();
@@ -146,7 +146,7 @@ export class Digraph {
 
   private appendDependencies(nonPassedLevelSubjects: Subject[]) {
     nonPassedLevelSubjects.forEach((nonPassedSubject) => {
-      this.appendNodeOptions(nonPassedSubject.name!, nonPassedSubject.id);
+      this.appendNodeOptions(nonPassedSubject.name, nonPassedSubject.id);
       this.appendTakenDependencies(nonPassedSubject);
       this.appendPassedDependencies(nonPassedSubject);
     });

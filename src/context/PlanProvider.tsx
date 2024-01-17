@@ -10,16 +10,18 @@ const DEFAULT_PLAN = plans[0] as unknown as Plan;
 const SUBJECTS_KEY = "subjects";
 
 const getFlattenedPlan = (plan: Plan) => {
-  const flattenedSubjects = (plan.subjects as Subject[]).flat().reduce(
-    (acc, subject: Subject) => ({
-      ...acc,
-      [subject.id]: {
-        modes: subject.modes,
-        status: statuses.PENDING,
-      },
-    }),
-    {},
-  );
+  const flattenedSubjects = Object.values(plan.subjects)
+    .flat()
+    .reduce(
+      (acc, subject: Subject) => ({
+        ...acc,
+        [subject.id]: {
+          modes: subject.modes,
+          status: statuses.PENDING,
+        },
+      }),
+      {},
+    );
   return {
     subjects: flattenedSubjects,
     id: plan.id,

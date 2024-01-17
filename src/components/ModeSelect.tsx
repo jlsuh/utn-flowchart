@@ -6,9 +6,8 @@ import { replaceWhiteSpace } from "../utils";
 
 export const ModeSelect = ({ subject }: { subject: Subject }) => {
   const { contextPlan, updateMode } = useContext<PlanContextProps>(PlanContext);
-  const targetSubject = contextPlan.subjects[
-    subject.id as keyof typeof contextPlan.subjects
-  ] as Subject;
+  const targetSubject =
+    contextPlan.subjects[subject.id as keyof typeof contextPlan.subjects];
   const contextMode = targetSubject.modes[0];
 
   const onSelectInputChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -29,7 +28,7 @@ export const ModeSelect = ({ subject }: { subject: Subject }) => {
         onChange={onSelectInputChange}
         value={JSON.stringify(contextMode)}
       >
-        {subject?.modes?.map((mode) => (
+        {subject.modes.map((mode) => (
           <option
             key={`${replaceWhiteSpace(`${subject.id}-${mode}`)}`}
             value={JSON.stringify(mode)}

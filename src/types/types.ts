@@ -6,16 +6,16 @@ export interface Status {
 export interface Subject {
   id: string;
   modes: string[];
-  name?: string;
+  name: string;
   status: Status;
-  taken?: string[];
-  passed?: string[];
+  taken: string[];
+  passed: string[];
 }
 
 export interface Plan {
   id: string;
   branch: string;
-  subjects: Record<string, Subject> | Subject[];
+  subjects: Record<string, Subject>;
 }
 
 export interface PlanContextProps {

@@ -13,9 +13,7 @@ import { PlanContextProps, Subject } from "../types/types";
 export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
   const { contextPlan, updateStatuses } =
     useContext<PlanContextProps>(PlanContext);
-  const contextStatus = (contextPlan.subjects as Record<string, Subject>)[
-    subject.id
-  ].status;
+  const contextStatus = contextPlan.subjects[subject.id].status;
 
   const handleChangeRadioInput = (event: ChangeEvent<HTMLInputElement>) => {
     const newStatus = JSON.parse(event.target.value);
