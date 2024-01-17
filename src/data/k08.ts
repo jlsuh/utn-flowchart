@@ -1,6 +1,7 @@
+import { DataPlan } from "../types/types";
 import { modes } from "./constants";
 
-export const k08 = {
+export const k08: DataPlan = {
   id: "k08",
   branch: "FRBA",
   subjects: [
