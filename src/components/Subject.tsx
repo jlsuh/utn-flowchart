@@ -15,9 +15,7 @@ import { StatusRadioGroup } from "./StatusRadioGroup";
 export const Subject = ({ subject }: { subject: SubjectProps }) => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const { subjects } = contextPlan;
-  const contextSubject = subjects[
-    subject.id as keyof typeof subjects
-  ] as SubjectProps;
+  const contextSubject = subjects[subject.id as keyof typeof subjects];
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
