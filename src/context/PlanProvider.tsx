@@ -1,7 +1,7 @@
 import { ReactNode, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
-import { plans, statuses } from "../data";
+import { plans } from "../data";
 import { DataPlan, Plan, Status, Subject } from "../types/types";
 import { planReducer } from "./planReducer";
 import { planTypes } from "./planTypes";
@@ -17,7 +17,7 @@ const getFlattenedPlan = (plan: DataPlan) => {
         ...acc,
         [subject.id]: {
           modes: subject.modes,
-          status: statuses.PENDING,
+          status: subject.status,
         },
       }),
       {},
@@ -30,10 +30,12 @@ const getFlattenedPlan = (plan: DataPlan) => {
 };
 
 const initializer = (initialArg: Plan) => {
-  const subjects = JSON.parse(localStorage.getItem(SUBJECTS_KEY)!);
-  if (subjects) return subjects;
-  localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
-  return initialArg;
+  const subjectsJSON = localStorage.getItem(SUBJECTS_KEY);
+  if (subjectsJSON === null) {
+    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
+    return initialArg;
+  }
+  return JSON.parse(subjectsJSON);
 };
 
 export const PlanProvider = ({ children }: { children: ReactNode }) => {

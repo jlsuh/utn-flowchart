@@ -32,12 +32,17 @@ export class Digraph {
   private filterNonPassedSubjects(subjects: Subject[]) {
     return subjects.filter(
       (subject) =>
-        this.contextSubjects[subject.id].status?.name !== statuses.PASSED.name,
+        this.contextSubjects[subject.id].status.name !== statuses.PASSED.name,
     );
   }
 
-  private findSubjectById = (target: string) => {
-    return this.allSubjects.find((subject) => subject.id === target)!;
+  private findSubjectById = (targetSubjectId: string) => {
+    return (
+      this.allSubjects.find((subject) => subject.id === targetSubjectId) ??
+      (() => {
+        throw new Error(`Subject with id ${targetSubjectId} not found`);
+      })()
+    );
   };
 
   private mapToSubjects(subjectsIds: string[]) {
@@ -106,7 +111,7 @@ export class Digraph {
 
   private appendTakenDependencies(subject: Subject) {
     const takenIds = subject.taken;
-    if (takenIds) {
+    if (takenIds.length > 0) {
       const takenSubjects = this.mapToSubjects(takenIds);
       this.appendDependenciesWithOptions(
         subject,
@@ -118,7 +123,7 @@ export class Digraph {
 
   private appendPassedDependencies(subject: Subject) {
     const passedIds = subject.passed;
-    if (passedIds) {
+    if (passedIds.length > 0) {
       const passedSubjects = this.mapToSubjects(passedIds);
       this.appendDependenciesWithOptions(
         subject,
@@ -131,7 +136,7 @@ export class Digraph {
   private appendNodeOptions(name: string, id: string) {
     this.appendSubjectNames([name]);
     const { status, modes: subjectModes } = this.contextSubjects[id];
-    const nodeOptions = [`style="filled"fillcolor="${status?.color}"`];
+    const nodeOptions = [`style="filled"fillcolor="${status.color}"`];
     if (subjectModes[0] === modes.ANNUAL) {
       nodeOptions.push(`${options.annualSubject}`);
     }

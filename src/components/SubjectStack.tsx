@@ -9,8 +9,12 @@ import { SubjectGrid } from "./SubjectGrid";
 
 export const SubjectStack = () => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
-  const plan = findPlanById(contextPlan.id);
-  const subjectsByLevel = plan?.subjects;
+  const plan =
+    findPlanById(contextPlan.id) ??
+    (() => {
+      throw new Error(`Plan with id ${contextPlan.id} not found`);
+    })();
+  const subjectsByLevel = plan.subjects;
 
   return (
     <Stack spacing={3}>
