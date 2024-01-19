@@ -36,8 +36,13 @@ export class Digraph {
     );
   }
 
-  private findSubjectById = (target: string) => {
-    return this.allSubjects.find((subject) => subject.id === target)!;
+  private findSubjectById = (targetSubjectId: string) => {
+    return (
+      this.allSubjects.find((subject) => subject.id === targetSubjectId) ??
+      (() => {
+        throw new Error(`Subject with id ${targetSubjectId} not found`);
+      })()
+    );
   };
 
   private mapToSubjects(subjectsIds: string[]) {
