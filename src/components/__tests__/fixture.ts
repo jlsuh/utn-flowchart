@@ -1,4 +1,4 @@
-import { modes, statuses } from "../../data";
+import { DEFAULT_STATUS, modes } from "../../data";
 import { DataPlan, Plan, PlanContextProps } from "../../types/types";
 
 const id1 = "subject-1";
@@ -19,7 +19,7 @@ const contextPlan: Plan = {
       modes: [modes.ANNUAL],
       name: subjectName1,
       passed: [],
-      status: statuses.PENDING,
+      status: DEFAULT_STATUS,
       taken: [],
     },
     [id2]: {
@@ -27,7 +27,7 @@ const contextPlan: Plan = {
       modes: [modes.ANNUAL],
       name: subjectName2,
       passed: [],
-      status: statuses.PENDING,
+      status: DEFAULT_STATUS,
       taken: [],
     },
   },
@@ -37,7 +37,7 @@ const subject = {
   modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
   name: subjectName1,
   passed: [],
-  status: statuses.PENDING,
+  status: DEFAULT_STATUS,
   taken: [],
 };
 const plan1: DataPlan = {
@@ -50,7 +50,7 @@ const plan1: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: subjectName1,
         passed: [],
-        status: statuses.PENDING,
+        status: DEFAULT_STATUS,
         taken: [],
       },
     ],
@@ -60,7 +60,7 @@ const plan1: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Subject 2",
         passed: [],
-        status: statuses.PENDING,
+        status: DEFAULT_STATUS,
         taken: [],
       },
     ],
@@ -76,7 +76,7 @@ const plan2: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Subject 3",
         passed: [],
-        status: statuses.PENDING,
+        status: DEFAULT_STATUS,
         taken: [],
       },
     ],
@@ -86,7 +86,7 @@ const plan2: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Subject 4",
         passed: [],
-        status: statuses.PENDING,
+        status: DEFAULT_STATUS,
         taken: [],
       },
     ],

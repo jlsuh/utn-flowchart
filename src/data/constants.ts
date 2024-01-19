@@ -28,3 +28,5 @@ export const statuses = {
     color: "#4CAF50",
   },
 };
+
+export const DEFAULT_STATUS = statuses.PENDING;
