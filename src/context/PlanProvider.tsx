@@ -9,8 +9,8 @@ import { planTypes } from "./planTypes";
 const DEFAULT_PLAN = plans[0];
 const SUBJECTS_KEY = "subjects";
 
-const getFlattenedPlan = (plan: DataPlan) => {
-  const flattenedSubjects = Object.values(plan.subjects)
+const getFlattenedPlan = ({ id, branch, subjects }: DataPlan) => {
+  const flattenedSubjects = Object.values(subjects)
     .flat()
     .reduce(
       (acc, subject: Subject) => ({
@@ -23,8 +23,8 @@ const getFlattenedPlan = (plan: DataPlan) => {
       {},
     );
   return {
-    branch: plan.branch,
-    id: plan.id,
+    branch,
+    id,
     subjects: flattenedSubjects,
   };
 };
