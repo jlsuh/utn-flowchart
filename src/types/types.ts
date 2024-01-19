@@ -8,7 +8,7 @@ export interface Subject {
   readonly modes: string[];
   readonly name: string;
   readonly passed: string[];
-  readonly status?: Status;
+  readonly status: Status;
   readonly taken: string[];
 }
 

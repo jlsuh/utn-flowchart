@@ -1,7 +1,7 @@
 import { ReactNode, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
-import { plans, statuses } from "../data";
+import { plans } from "../data";
 import { DataPlan, Plan, Status, Subject } from "../types/types";
 import { planReducer } from "./planReducer";
 import { planTypes } from "./planTypes";
@@ -17,7 +17,7 @@ const getFlattenedPlan = (plan: DataPlan) => {
         ...acc,
         [subject.id]: {
           modes: subject.modes,
-          status: statuses.PENDING,
+          status: subject.status,
         },
       }),
       {},

@@ -1,5 +1,5 @@
 import { DataPlan } from "../types/types";
-import { modes } from "./constants";
+import { modes, statuses } from "./constants";
 
 export const k23: DataPlan = {
   id: "k23",
@@ -11,6 +11,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Análisis Matemático I",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -18,6 +19,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Álgebra y Geometría Analítica",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -25,6 +27,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Física I",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -32,6 +35,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Inglés I",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -39,6 +43,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Lógica y Estructuras Discretas",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -46,6 +51,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Algoritmos y Estructuras de Datos",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -53,6 +59,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Arquitectura de Computadores",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -60,6 +67,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Sist. y Procesos de Negocio",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
     ],
@@ -69,6 +77,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Análisis Matemático II",
         passed: [],
+        status: statuses.PENDING,
         taken: ["am1", "aga"],
       },
       {
@@ -76,6 +85,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Física II",
         passed: [],
+        status: statuses.PENDING,
         taken: ["am1", "f1"],
       },
       {
@@ -83,6 +93,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Ing. y Sociedad",
         passed: [],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -90,6 +101,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Inglés II",
         passed: ["ingles1"],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -97,6 +109,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Sintaxis y Semántica de los Lenguajes",
         passed: [],
+        status: statuses.PENDING,
         taken: ["lyed", "ayed"],
       },
       {
@@ -104,6 +117,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Paradigmas de Programación",
         passed: [],
+        status: statuses.PENDING,
         taken: ["lyed", "ayed"],
       },
       {
@@ -111,6 +125,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Sist. Operativos",
         passed: [],
+        status: statuses.PENDING,
         taken: ["adc"],
       },
       {
@@ -118,6 +133,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Análisis de Sistemas de Información",
         passed: [],
+        status: statuses.PENDING,
         taken: ["ayed", "sypn"],
       },
     ],
@@ -127,6 +143,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Prob. y Estadística",
         passed: [],
+        status: statuses.PENDING,
         taken: ["am1", "aga"],
       },
       {
@@ -134,6 +151,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Economía",
         passed: ["am1", "aga"],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -141,6 +159,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Bases de Datos",
         passed: ["lyed", "ayed"],
+        status: statuses.PENDING,
         taken: ["ssl", "adsi"],
       },
       {
@@ -148,6 +167,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Desarrollo de Software",
         passed: ["lyed", "ayed"],
+        status: statuses.PENDING,
         taken: ["pdep", "adsi"],
       },
       {
@@ -155,6 +175,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Comunicación de Datos",
         passed: ["f1", "adc"],
+        status: statuses.PENDING,
         taken: [],
       },
       {
@@ -162,6 +183,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Análisis Numérico",
         passed: ["am1", "aga"],
+        status: statuses.PENDING,
         taken: ["am2"],
       },
       {
@@ -169,6 +191,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Diseño de Sistemas de Información",
         passed: ["ingles1", "ayed", "sypn"],
+        status: statuses.PENDING,
         taken: ["pdep", "adsi"],
       },
     ],
@@ -178,6 +201,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Legislación",
         passed: [],
+        status: statuses.PENDING,
         taken: ["iys"],
       },
       {
@@ -185,6 +209,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Ing. y Calidad de Software",
         passed: ["ssl", "pdep"],
+        status: statuses.PENDING,
         taken: ["bdd", "ddsw", "ddsi"],
       },
       {
@@ -192,6 +217,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Redes de Datos",
         passed: [],
+        status: statuses.PENDING,
         taken: ["sisop", "cdd"],
       },
       {
@@ -199,6 +225,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Inv. Operativa",
         passed: [],
+        status: statuses.PENDING,
         taken: ["proba", "an"],
       },
       {
@@ -206,6 +233,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Simulación",
         passed: ["am2"],
+        status: statuses.PENDING,
         taken: ["proba"],
       },
       {
@@ -213,6 +241,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Tecnologías para la Automatización",
         passed: ["am2"],
+        status: statuses.PENDING,
         taken: ["f2", "an"],
       },
       {
@@ -220,6 +249,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Adm. de Sist. de Información",
         passed: ["adsi"],
+        status: statuses.PENDING,
         taken: ["economia", "ddsi"],
       },
     ],
@@ -229,6 +259,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Inteligencia Artificial",
         passed: ["proba", "an"],
+        status: statuses.PENDING,
         taken: ["simulacion"],
       },
       {
@@ -236,6 +267,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Ciencias de Datos",
         passed: ["proba", "bdd"],
+        status: statuses.PENDING,
         taken: ["simulacion"],
       },
       {
@@ -243,6 +275,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Sist. de Gestión",
         passed: ["ddsi"],
+        status: statuses.PENDING,
         taken: ["economia", "io"],
       },
       {
@@ -250,6 +283,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Gestión Gerencial",
         passed: ["economia"],
+        status: statuses.PENDING,
         taken: ["legislacion", "admsi"],
       },
       {
@@ -257,6 +291,7 @@ export const k23: DataPlan = {
         modes: [modes.QUADRIMESTRAL],
         name: "Seguridad en los Sistemas de Información",
         passed: ["ddsw", "cdd"],
+        status: statuses.PENDING,
         taken: ["rdd", "admsi"],
       },
       {
@@ -264,6 +299,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Proyecto Final",
         passed: ["ingles2", "ddsw", "ddsi"],
+        status: statuses.PENDING,
         taken: ["iycds", "rdd", "admsi"],
       },
       {
@@ -271,6 +307,7 @@ export const k23: DataPlan = {
         modes: [modes.ANNUAL],
         name: "Práctica Profesional Supervisada",
         passed: ["ingles2", "ddsw", "ddsi"],
+        status: statuses.PENDING,
         taken: ["iycds", "rdd", "admsi"],
       },
     ],
