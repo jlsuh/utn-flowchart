@@ -118,7 +118,7 @@ export class Digraph {
 
   private appendPassedDependencies(subject: Subject) {
     const passedIds = subject.passed;
-    if (passedIds) {
+    if (passedIds.length > 0) {
       const passedSubjects = this.mapToSubjects(passedIds);
       this.appendDependenciesWithOptions(
         subject,
