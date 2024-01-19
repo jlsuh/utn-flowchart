@@ -30,10 +30,12 @@ const getFlattenedPlan = (plan: DataPlan) => {
 };
 
 const initializer = (initialArg: Plan) => {
-  const subjects = JSON.parse(localStorage.getItem(SUBJECTS_KEY)!);
-  if (subjects) return subjects;
-  localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
-  return initialArg;
+  const subjectsJSON = localStorage.getItem(SUBJECTS_KEY);
+  if (subjectsJSON === null) {
+    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
+    return initialArg;
+  }
+  return JSON.parse(subjectsJSON);
 };
 
 export const PlanProvider = ({ children }: { children: ReactNode }) => {
