@@ -95,13 +95,19 @@ export const codigoDelPlan: DataPlan = {
       // Materias del primer año
       {
         id: "idMateria1Nivel1",
-        name: "Nombre completo de la materia 1 nivel 1",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        name: "Nombre completo de la materia 1 nivel 1",
+        passed: [],
+        status: DEFAULT_STATUS,
+        taken: [],
       },
       {
         id: "idMateria2Nivel1",
-        name: "Nombre completo de la materia 2 nivel 1",
         modes: [modes.QUADRIMESTRAL],
+        name: "Nombre completo de la materia 2 nivel 1",
+        passed: [],
+        status: DEFAULT_STATUS,
+        taken: [],
       },
       /* Más materias según corresponda */
     ],
@@ -109,20 +115,27 @@ export const codigoDelPlan: DataPlan = {
       // Materias del segundo año
       {
         id: "idMateria1Nivel2",
-        name: "Nombre completo de la materia 1 nivel 2",
         modes: [modes.ANNUAL],
+        name: "Nombre completo de la materia 1 nivel 2",
+        passed: [],
+        status: DEFAULT_STATUS,
         taken: ["idMateria1Nivel1", "idMateria2Nivel1"],
       },
       {
         id: "idMateria2Nivel2",
-        name: "Nombre completo de la materia 2 nivel 2",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        name: "Nombre completo de la materia 2 nivel 2",
+        passed: [],
+        status: DEFAULT_STATUS,
         taken: ["idMateria2Nivel1"],
       },
       {
         id: "idMateria3Nivel2",
         name: "Nombre completo de la materia 3 nivel 2",
         modes: [modes.QUADRIMESTRAL],
+        passed: [],
+        status: DEFAULT_STATUS,
+        taken: [],
       },
       /* Más materias según corresponda */
     ],
@@ -130,22 +143,26 @@ export const codigoDelPlan: DataPlan = {
       // Materias del tercer año
       {
         id: "idMateria1Nivel3",
-        name: "Nombre completo de la materia 1 nivel 3",
         modes: [modes.ANNUAL],
-        taken: ["idMateria1Nivel2", "idMateria2Nivel2"],
+        name: "Nombre completo de la materia 1 nivel 3",
         passed: ["idMateria3Nivel2"],
+        status: DEFAULT_STATUS,
+        taken: ["idMateria1Nivel2", "idMateria2Nivel2"],
       },
       {
         id: "idMateria2Nivel3",
-        name: "Nombre completo de la materia 2 nivel 3",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
-        taken: ["idMateria1Nivel2"],
+        name: "Nombre completo de la materia 2 nivel 3",
         passed: ["idMateria2Nivel2"],
+        status: DEFAULT_STATUS,
+        taken: ["idMateria1Nivel2"],
       },
       {
         id: "idMateria3Nivel3",
-        name: "Nombre completo de la materia 3 nivel 3",
         modes: [modes.QUADRIMESTRAL],
+        name: "Nombre completo de la materia 3 nivel 3",
+        passed: [],
+        status: DEFAULT_STATUS,
         taken: ["idMateria1Nivel2"],
       },
       /* Más materias según corresponda */
@@ -160,6 +177,8 @@ export const codigoDelPlan: DataPlan = {
 - El orden de las modalidades de cursada en el `array` `modes` debe ser según el aspecto "por defecto" bajo la cual la regional ofrezca dicha materia. Ejemplo: Si la materia se ofrece principalmente en forma anual, siendo en forma secundaria cuatrimestral, el orden correcto es: `[modes.ANNUAL, modes.QUADRIMESTRAL]`.
 - El `array` `taken` contiene los `id`s de las materias que son requisito para poder **cursar la materia en cuestión**.
 - El `array` `passed` contiene los `id`s de las materias que son requisito para poder **aprobar la materia en cuestión**.
+- `DEFAULT_STATUS` es `statuses.PENDING`. En otras palabras, el estado por defecto de una materia es "Falta cursada".
+- En caso de que la materia no tenga ninguna correlativa, los `array`s `taken` y `passed` deben ser `[]`.
 
 Finalmente, el objeto del plan debe ser incorporado al `array` de planes existentes en `src/data/plans.ts`:
 
