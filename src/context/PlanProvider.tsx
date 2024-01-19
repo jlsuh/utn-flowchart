@@ -13,7 +13,7 @@ const getFlattenedPlan = ({ id, branch, subjects }: DataPlan) => {
   const flattenedSubjects = Object.values(subjects)
     .flat()
     .reduce(
-      (acc, subject: Subject) => ({
+      (acc, subject) => ({
         ...acc,
         [subject.id]: {
           modes: subject.modes,
