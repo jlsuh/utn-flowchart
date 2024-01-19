@@ -1,5 +1,5 @@
 import { modes, statuses } from "../../data";
-import { Plan, PlanContextProps } from "../../types/types";
+import { DataPlan, Plan, PlanContextProps } from "../../types/types";
 
 const id1 = "subject-1";
 const id2 = "subject-2";
@@ -40,7 +40,7 @@ const subject = {
   status: statuses.PENDING,
   taken: [],
 };
-const plan1 = {
+const plan1: DataPlan = {
   branch: "planBranch-1",
   id: planId1,
   subjects: [
@@ -49,6 +49,7 @@ const plan1 = {
         id: id1,
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: subjectName1,
+        taken: [],
       },
     ],
     [
@@ -56,11 +57,12 @@ const plan1 = {
         id: id2,
         modes: [modes.ANNUAL],
         name: "Subject 2",
+        taken: [],
       },
     ],
   ],
 };
-const plan2 = {
+const plan2: DataPlan = {
   branch: "planBranch-2",
   id: planId2,
   subjects: [
@@ -69,6 +71,7 @@ const plan2 = {
         id: id3,
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
         name: "Subject 3",
+        taken: [],
       },
     ],
     [
@@ -76,6 +79,7 @@ const plan2 = {
         id: id4,
         modes: [modes.ANNUAL],
         name: "Subject 4",
+        taken: [],
       },
     ],
   ],

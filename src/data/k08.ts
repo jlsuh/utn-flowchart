@@ -10,41 +10,49 @@ export const k08: DataPlan = {
         id: "aga",
         name: "Álgebra y Geometría Analítica",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "am1",
         name: "Análisis Matemático I",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "md",
         name: "Matemática Discreta",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "quimica",
         name: "Química",
         modes: [modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "iys",
         name: "Ing. y Sociedad",
         modes: [modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "ayed",
         name: "Algoritmos y Estructuras de Datos",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "adc",
         name: "Arquitectura de Computadores",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "syo",
         name: "Sist. y Organizaciones",
         modes: [modes.ANNUAL],
+        taken: [],
       },
     ],
     [
@@ -58,6 +66,7 @@ export const k08: DataPlan = {
         id: "sdr",
         name: "Sist. de Representación",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "am2",
@@ -75,11 +84,13 @@ export const k08: DataPlan = {
         id: "ingles1",
         name: "Inglés I",
         modes: [modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "f1",
         name: "Física I",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "pdep",
@@ -144,9 +155,10 @@ export const k08: DataPlan = {
       },
       {
         id: "ingles2",
-        name: "Inglés II",
         modes: [modes.QUADRIMESTRAL],
+        name: "Inglés II",
         passed: ["ingles1"],
+        taken: [],
       },
     ],
     [

@@ -10,41 +10,49 @@ export const k23: DataPlan = {
         id: "am1",
         name: "Análisis Matemático I",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "aga",
         name: "Álgebra y Geometría Analítica",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "f1",
         name: "Física I",
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "ingles1",
         name: "Inglés I",
         modes: [modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "lyed",
         name: "Lógica y Estructuras Discretas",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "ayed",
         name: "Algoritmos y Estructuras de Datos",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "adc",
         name: "Arquitectura de Computadores",
         modes: [modes.ANNUAL],
+        taken: [],
       },
       {
         id: "sypn",
         name: "Sist. y Procesos de Negocio",
         modes: [modes.ANNUAL],
+        taken: [],
       },
     ],
     [
@@ -64,12 +72,14 @@ export const k23: DataPlan = {
         id: "iys",
         name: "Ing. y Sociedad",
         modes: [modes.QUADRIMESTRAL],
+        taken: [],
       },
       {
         id: "ingles2",
         name: "Inglés II",
         modes: [modes.QUADRIMESTRAL],
         passed: ["ingles1"],
+        taken: [],
       },
       {
         id: "ssl",
@@ -108,6 +118,7 @@ export const k23: DataPlan = {
         name: "Economía",
         modes: [modes.QUADRIMESTRAL],
         passed: ["am1", "aga"],
+        taken: [],
       },
       {
         id: "bdd",
@@ -128,6 +139,7 @@ export const k23: DataPlan = {
         name: "Comunicación de Datos",
         modes: [modes.QUADRIMESTRAL],
         passed: ["f1", "adc"],
+        taken: [],
       },
       {
         id: "an",

@@ -9,7 +9,7 @@ export interface Subject {
   readonly name: string;
   readonly passed?: string[];
   readonly status?: Status;
-  readonly taken?: string[];
+  readonly taken: string[];
 }
 
 export interface Plan {
