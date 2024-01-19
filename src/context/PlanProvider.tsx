@@ -60,7 +60,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     dispatch(action);
   };
 
-  if (!!currentPlan && currentPlan.id !== contextPlan.id) {
+  if (currentPlan && currentPlan.id !== contextPlan.id) {
     const newPlan = getFlattenedPlan(currentPlan);
     updatePlan(newPlan);
   }
