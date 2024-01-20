@@ -1,3 +1,3 @@
-export enum planTypes {
-  updatePlan = "plan/update",
-}
+export const planTypes = {
+  updatePlan: "plan/update",
+} as const;

@@ -1,14 +1,14 @@
-export enum modes {
-  ANNUAL = "Anual",
-  QUADRIMESTRAL = "Cuatrimestral",
-}
+export const modes = {
+  ANNUAL: "Anual",
+  QUADRIMESTRAL: "Cuatrimestral",
+} as const;
 
-export enum options {
-  annualSubject = `shape="box"`,
-  globalArrowSize = `arrowsize="0.5"`,
-  globalDigraph = `ranksep="3"rankdir="BT"nodesep="0.3"`,
-  takenTransitionEdgeStyle = `style="dotted"penwidth="2"`,
-}
+export const options = {
+  annualSubject: `shape="box"`,
+  globalArrowSize: `arrowsize="0.5"`,
+  globalDigraph: `ranksep="3"rankdir="BT"nodesep="0.3"`,
+  takenTransitionEdgeStyle: `style="dotted"penwidth="2"`,
+} as const;
 
 export const statuses = {
   PENDING: {
@@ -27,6 +27,6 @@ export const statuses = {
     name: "Aprobada",
     color: "#4CAF50",
   },
-};
+} as const;
 
 export const DEFAULT_STATUS = statuses.PENDING;
