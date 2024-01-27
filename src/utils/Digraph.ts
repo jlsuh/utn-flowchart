@@ -40,7 +40,7 @@ export class Digraph {
     return (
       this.allSubjects.find((subject) => subject.id === targetSubjectId) ??
       (() => {
-        throw new Error(`Subject with id ${targetSubjectId} not found`);
+        throw new Error(`Subject with id "${targetSubjectId}" not found`);
       })()
     );
   };
