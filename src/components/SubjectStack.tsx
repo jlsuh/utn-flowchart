@@ -9,11 +9,7 @@ import { SubjectGrid } from "./SubjectGrid";
 
 export const SubjectStack = () => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
-  const plan =
-    findPlanById(contextPlan.id) ??
-    (() => {
-      throw new Error(`Plan with id ${contextPlan.id} not found`);
-    })();
+  const plan = findPlanById(contextPlan.id);
   const subjectsByLevel = plan.subjects;
 
   return (
