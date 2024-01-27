@@ -5,7 +5,7 @@ import { Subject as SubjectProps } from "../types/types";
 export const SubjectGrid = ({
   levelSubjects,
 }: {
-  levelSubjects: SubjectProps[];
+  levelSubjects: ReadonlyArray<SubjectProps>;
 }) => {
   return (
     <Grid

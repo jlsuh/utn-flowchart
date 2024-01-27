@@ -8,7 +8,7 @@ export const StatusMarker = ({
   levelSubjects,
 }: {
   status: Status;
-  levelSubjects: Subject[];
+  levelSubjects: ReadonlyArray<Subject>;
 }) => {
   const { updateStatuses } = useContext<PlanContextProps>(PlanContext);
 

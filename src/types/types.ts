@@ -5,11 +5,11 @@ export interface Status {
 
 export interface Subject {
   readonly id: string;
-  readonly modes: string[];
+  readonly modes: ReadonlyArray<string>;
   readonly name: string;
-  readonly passed: string[];
+  readonly passed: ReadonlyArray<string>;
   readonly status: Status;
-  readonly taken: string[];
+  readonly taken: ReadonlyArray<string>;
 }
 
 export interface Plan {
@@ -19,11 +19,14 @@ export interface Plan {
 }
 
 export interface DataPlan extends Omit<Plan, "subjects"> {
-  readonly subjects: Subject[][];
+  readonly subjects: ReadonlyArray<ReadonlyArray<Subject>>;
 }
 
 export interface PlanContextProps {
   readonly contextPlan: Plan;
   readonly updateMode: (subjectId: string, newMode: string) => void;
-  readonly updateStatuses: (subjects: Subject[], newStatus: Status) => void;
+  readonly updateStatuses: (
+    subjects: ReadonlyArray<Subject>,
+    newStatus: Status,
+  ) => void;
 }

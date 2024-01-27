@@ -2,14 +2,14 @@ import { modes, options, statuses } from "../data";
 import { Subject } from "../types/types";
 
 export class Digraph {
-  private readonly allSubjects: Subject[];
+  private readonly allSubjects: ReadonlyArray<Subject>;
   private readonly contextSubjects: Record<string, Subject>;
-  private readonly subjectsByLevel: Subject[][];
+  private readonly subjectsByLevel: ReadonlyArray<ReadonlyArray<Subject>>;
   private digraph: string;
 
   constructor(
     contextSubjects: Record<string, Subject>,
-    subjectsByLevel: Subject[][],
+    subjectsByLevel: ReadonlyArray<ReadonlyArray<Subject>>,
   ) {
     this.allSubjects = subjectsByLevel.flat();
     this.contextSubjects = contextSubjects;
@@ -29,7 +29,7 @@ export class Digraph {
     return this.digraph;
   }
 
-  private filterNonPassedSubjects(subjects: Subject[]) {
+  private filterNonPassedSubjects(subjects: ReadonlyArray<Subject>) {
     return subjects.filter(
       (subject) =>
         this.contextSubjects[subject.id].status.name !== statuses.PASSED.name,
@@ -45,11 +45,11 @@ export class Digraph {
     );
   };
 
-  private mapToSubjects(subjectsIds: string[]) {
+  private mapToSubjects(subjectsIds: ReadonlyArray<string>) {
     return subjectsIds.map((id) => this.findSubjectById(id));
   }
 
-  private getJoinedOptions(options: string[]) {
+  private getJoinedOptions(options: ReadonlyArray<string>) {
     return `[${options.join("")}]`;
   }
 
@@ -74,20 +74,20 @@ export class Digraph {
     this.appendString(`${options.globalDigraph}`);
   }
 
-  private appendSubjectNames(names: string[]) {
+  private appendSubjectNames(names: ReadonlyArray<string>) {
     names.forEach((name) => {
       this.appendString(`"${name}"`);
     });
   }
 
-  private appendDependenciesNames(dependencies: Subject[]) {
+  private appendDependenciesNames(dependencies: ReadonlyArray<Subject>) {
     this.appendSubjectNames(dependencies.map((subject) => subject.name));
   }
 
   private appendDependenciesWithOptions(
     subject: Subject,
-    dependencies: Subject[],
-    options: string[],
+    dependencies: ReadonlyArray<Subject>,
+    options: ReadonlyArray<string>,
   ) {
     this.appendOpening();
     this.appendDependenciesNames(dependencies);
@@ -97,7 +97,7 @@ export class Digraph {
     this.appendString(this.getJoinedOptions(options));
   }
 
-  private appendSameRank(levelSubjects: Subject[]) {
+  private appendSameRank(levelSubjects: ReadonlyArray<Subject>) {
     if (levelSubjects.length > 1) {
       this.appendOpening();
       this.appendString("rank=same");
@@ -143,7 +143,7 @@ export class Digraph {
     this.appendString(this.getJoinedOptions(nodeOptions));
   }
 
-  private appendDependencies(nonPassedLevelSubjects: Subject[]) {
+  private appendDependencies(nonPassedLevelSubjects: ReadonlyArray<Subject>) {
     nonPassedLevelSubjects.forEach((nonPassedSubject) => {
       this.appendNodeOptions(nonPassedSubject.name, nonPassedSubject.id);
       this.appendTakenDependencies(nonPassedSubject);
@@ -151,7 +151,7 @@ export class Digraph {
     });
   }
 
-  private appendNonPassedSubjects(levelSubjects: Subject[]) {
+  private appendNonPassedSubjects(levelSubjects: ReadonlyArray<Subject>) {
     const nonPassedLevelSubjects = this.filterNonPassedSubjects(levelSubjects);
     this.appendDependencies(nonPassedLevelSubjects);
     this.appendSameRank(nonPassedLevelSubjects);

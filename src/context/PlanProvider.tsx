@@ -83,7 +83,10 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     updatePlan(newPlan);
   };
 
-  const updateStatuses = (subjects: Subject[], newStatus: Status) => {
+  const updateStatuses = (
+    subjects: ReadonlyArray<Subject>,
+    newStatus: Status,
+  ) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
     subjects.forEach((subject) => {
       newSubjects[subject.id] = {
