@@ -6,12 +6,12 @@ import { composeSVGObjectURL } from "../utils";
 
 const continuation = (svg: SVGElement) => {
   const url = composeSVGObjectURL(svg);
-  const newWindow =
-    open(url) ??
-    (() => {
-      throw new Error("Failed to open resource");
-    })();
-  newWindow!.onload = () => URL.revokeObjectURL(url);
+  const newWindow = window.open(url);
+  if (newWindow) {
+    newWindow.onload = () => URL.revokeObjectURL(url);
+  } else {
+    window.location.assign(url);
+  }
 };
 
 export const ShowDigraphButton = () => {
