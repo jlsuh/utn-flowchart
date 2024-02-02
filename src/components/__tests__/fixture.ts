@@ -1,5 +1,5 @@
 import { DEFAULT_STATUS, modes } from "../../data";
-import { DataPlan, Plan, PlanContextProps } from "../../types/types";
+import { ContextPlan, DataPlan, PlanContextProps } from "../../types/types";
 
 const id1 = "subject-1";
 const id2 = "subject-2";
@@ -10,7 +10,7 @@ const planId2 = "plan-2";
 const subjectName1 = "Subject 1";
 const subjectName2 = "Subject 2";
 
-const contextPlan: Plan = {
+const contextPlan: ContextPlan = {
   id: planId1,
   branch: "planBranch-1",
   subjects: {

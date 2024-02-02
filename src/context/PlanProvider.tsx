@@ -2,7 +2,7 @@ import { ReactNode, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { PlanContext } from ".";
 import { plans } from "../data";
-import { DataPlan, Plan, Status, Subject } from "../types/types";
+import { ContextPlan, DataPlan, Status, Subject } from "../types/types";
 import { planReducer } from "./planReducer";
 import { planTypes } from "./planTypes";
 
@@ -29,7 +29,7 @@ const getFlattenedPlan = ({ id, branch, subjects }: DataPlan) => {
   };
 };
 
-const initializer = (initialArg: Plan) => {
+const initializer = (initialArg: ContextPlan) => {
   const subjectsJSON = localStorage.getItem(SUBJECTS_KEY);
   if (subjectsJSON === null) {
     localStorage.setItem(SUBJECTS_KEY, JSON.stringify(initialArg));
@@ -49,7 +49,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     (plan) => plan.id === location.pathname.slice(1),
   );
 
-  const updatePlan = (newPlan: Plan) => {
+  const updatePlan = (newPlan: ContextPlan) => {
     localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));
     const action = {
       type: planTypes.updatePlan,
