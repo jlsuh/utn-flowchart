@@ -2,7 +2,7 @@
   "name": "utn-flowchart",
   "version": "1.0.0",
   "type": "module",
-  "description": "UTN Flowchart is a tool to help students of the National Technological University of Argentina to plan their careers. It generates a flowchart with the subjects that the student has already passed and the ones that are left to pass.",
+  "description": "Un generador de digrafos de planes de estudio de la Universidad Tecnológica Nacional.",
   "keywords": [
     "flowchart",
     "utn",
