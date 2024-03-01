@@ -274,7 +274,7 @@ export const r23: DataPlan = {
         name: "Sistema de Control",
         passed: ["info1", "td1","ea1"],
         status: DEFAULT_STATUS,
-        taken: ["td"],
+        taken: ["td1"],
       },
       {
         id: "edp",
