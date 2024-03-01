@@ -282,7 +282,7 @@ export const r23: DataPlan = {
         name: "Electrónica de Potencia",
         passed: ["fe","td1","ea1"],
         status: DEFAULT_STATUS,
-        taken: ["mie","me","ea2"],
+        taken: ["mie","me1","ea2"],
       },
       {
         id: "te",
