@@ -196,9 +196,9 @@ export const r23: DataPlan = {
         id: "tc2",
         modes: [modes.ANNUAL],
         name: "Teoría de los Circuitos II",
-        passed: ["ingles1", "ayed", "sypn"],
+        passed: ["am2", "f2"],
         status: DEFAULT_STATUS,
-        taken: ["pdep", "adsi"],
+        taken: ["asys", "tc1"],
       },
      
       {
