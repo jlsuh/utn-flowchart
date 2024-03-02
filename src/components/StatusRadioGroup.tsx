@@ -23,7 +23,7 @@ export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
 
   return (
     <FormControl sx={{ width: "100%" }}>
-      <FormLabel id={`${subject.id}`}>Estado</FormLabel>
+      <FormLabel component="legend">Estado</FormLabel>
       <RadioGroup
         aria-labelledby={`${subject.id}`}
         defaultValue={JSON.stringify(contextStatus)}
