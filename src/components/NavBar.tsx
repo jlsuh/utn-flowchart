@@ -23,7 +23,7 @@ export const NavBar = () => {
           <Typography
             component="div"
             noWrap
-            sx={{ userSelect: "none" }}
+            sx={{ userSelect: "none", mx: 1 }}
             variant="h5"
           >
             UTN Flowchart
