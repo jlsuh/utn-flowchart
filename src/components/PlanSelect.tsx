@@ -42,7 +42,7 @@ export const PlanSelect = ({ availablePlans = plans }) => {
   return (
     <FormControl sx={{ width: { xs: "100%", sm: 250 } }}>
       <Select
-        inputProps={{ "aria-label": "Seleccionar plan" }}
+        inputProps={{ "aria-label": "Select plan", name: "plan-select" }}
         MenuProps={{
           disableScrollLock: true,
           style: { maxWidth: 0, maxHeight: 300, position: "absolute" },
