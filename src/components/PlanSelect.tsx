@@ -40,19 +40,23 @@ export const PlanSelect = ({ availablePlans = plans }) => {
   };
 
   return (
-    <FormControl sx={{ width: { xs: "100%", sm: 250 } }}>
+    <FormControl sx={{ width: { xs: "100%", sm: 280 } }}>
       <Select
         inputProps={{ "aria-label": "Select plan", name: "plan-select" }}
         MenuProps={{
           disableScrollLock: true,
-          style: { maxWidth: 0, maxHeight: 300, position: "absolute" },
+          style: { position: "absolute" },
         }}
         onChange={handleChangeMenuItem}
         sx={selectStyles}
         value={contextPlan.id}
       >
-        {availablePlans.map(({ id, branch }) => (
-          <MenuItem key={`${id}-menu-item`} value={id}>
+        {availablePlans.map(({ id, branch }, index) => (
+          <MenuItem
+            divider={index < availablePlans.length - 1}
+            key={`${id}-menu-item`}
+            value={id}
+          >
             {`${id.toUpperCase()} - ${branch}`}
           </MenuItem>
         ))}
