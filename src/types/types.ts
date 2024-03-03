@@ -1,4 +1,4 @@
-export interface Plan<T> {
+interface Plan<T> {
   readonly id: string;
   readonly branch: string;
   readonly subjects: T;
