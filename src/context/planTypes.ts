@@ -1,3 +1,3 @@
 export const planTypes = {
-  updatePlan: "plan/update",
+  updatePlan: 'plan/update',
 } as const;

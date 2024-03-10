@@ -88,23 +88,23 @@ Cada plan de estudio debe ser agregado en el directorio `src/data/<codigoDelPlan
 
 ```ts
 export const codigoDelPlan: DataPlan = {
-  id: "codigoDelPlan",
-  branch: "codigoDeLaRegional",
+  id: 'codigoDelPlan',
+  branch: 'codigoDeLaRegional',
   subjects: [
     [
       // Materias del primer año
       {
-        id: "idMateria1Nivel1",
+        id: 'idMateria1Nivel1',
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
-        name: "Nombre completo de la materia 1 nivel 1",
+        name: 'Nombre completo de la materia 1 nivel 1',
         passed: [],
         status: DEFAULT_STATUS,
         taken: [],
       },
       {
-        id: "idMateria2Nivel1",
+        id: 'idMateria2Nivel1',
         modes: [modes.QUADRIMESTRAL],
-        name: "Nombre completo de la materia 2 nivel 1",
+        name: 'Nombre completo de la materia 2 nivel 1',
         passed: [],
         status: DEFAULT_STATUS,
         taken: [],
@@ -114,24 +114,24 @@ export const codigoDelPlan: DataPlan = {
     [
       // Materias del segundo año
       {
-        id: "idMateria1Nivel2",
+        id: 'idMateria1Nivel2',
         modes: [modes.ANNUAL],
-        name: "Nombre completo de la materia 1 nivel 2",
+        name: 'Nombre completo de la materia 1 nivel 2',
         passed: [],
         status: DEFAULT_STATUS,
-        taken: ["idMateria1Nivel1", "idMateria2Nivel1"],
+        taken: ['idMateria1Nivel1', 'idMateria2Nivel1'],
       },
       {
-        id: "idMateria2Nivel2",
+        id: 'idMateria2Nivel2',
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
-        name: "Nombre completo de la materia 2 nivel 2",
+        name: 'Nombre completo de la materia 2 nivel 2',
         passed: [],
         status: DEFAULT_STATUS,
-        taken: ["idMateria2Nivel1"],
+        taken: ['idMateria2Nivel1'],
       },
       {
-        id: "idMateria3Nivel2",
-        name: "Nombre completo de la materia 3 nivel 2",
+        id: 'idMateria3Nivel2',
+        name: 'Nombre completo de la materia 3 nivel 2',
         modes: [modes.QUADRIMESTRAL],
         passed: [],
         status: DEFAULT_STATUS,
@@ -142,28 +142,28 @@ export const codigoDelPlan: DataPlan = {
     [
       // Materias del tercer año
       {
-        id: "idMateria1Nivel3",
+        id: 'idMateria1Nivel3',
         modes: [modes.ANNUAL],
-        name: "Nombre completo de la materia 1 nivel 3",
-        passed: ["idMateria3Nivel2"],
+        name: 'Nombre completo de la materia 1 nivel 3',
+        passed: ['idMateria3Nivel2'],
         status: DEFAULT_STATUS,
-        taken: ["idMateria1Nivel2", "idMateria2Nivel2"],
+        taken: ['idMateria1Nivel2', 'idMateria2Nivel2'],
       },
       {
-        id: "idMateria2Nivel3",
+        id: 'idMateria2Nivel3',
         modes: [modes.ANNUAL, modes.QUADRIMESTRAL],
-        name: "Nombre completo de la materia 2 nivel 3",
-        passed: ["idMateria2Nivel2"],
+        name: 'Nombre completo de la materia 2 nivel 3',
+        passed: ['idMateria2Nivel2'],
         status: DEFAULT_STATUS,
-        taken: ["idMateria1Nivel2"],
+        taken: ['idMateria1Nivel2'],
       },
       {
-        id: "idMateria3Nivel3",
+        id: 'idMateria3Nivel3',
         modes: [modes.QUADRIMESTRAL],
-        name: "Nombre completo de la materia 3 nivel 3",
+        name: 'Nombre completo de la materia 3 nivel 3',
         passed: [],
         status: DEFAULT_STATUS,
-        taken: ["idMateria1Nivel2"],
+        taken: ['idMateria1Nivel2'],
       },
       /* Más materias según corresponda */
     ],
@@ -184,7 +184,7 @@ Finalmente, el objeto del plan debe ser incorporado al `array` de planes existen
 
 ```ts
 /* ... */
-import { codigoDelPlan } from "./codigoDelPlan";
+import { codigoDelPlan } from './codigoDelPlan';
 
 export const plans = [codigoDelPlan /*, Otros planes según corresponda*/];
 ```

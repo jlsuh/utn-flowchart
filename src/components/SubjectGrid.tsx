@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
-import { Subject } from ".";
-import { Subject as SubjectProps } from "../types/types";
+import { Grid } from '@mui/material';
+import { Subject } from '.';
+import { Subject as SubjectProps } from '../types/types';
 
 export const SubjectGrid = ({
   levelSubjects,
@@ -12,8 +12,8 @@ export const SubjectGrid = ({
       container
       item
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
+        display: 'flex',
+        flexWrap: 'wrap',
         pt: 1.5,
       }}
     >

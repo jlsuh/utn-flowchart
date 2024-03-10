@@ -4,11 +4,11 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
-} from "@mui/material";
-import { ChangeEvent, useContext } from "react";
-import { PlanContext } from "../context";
-import { statuses } from "../data";
-import { PlanContextProps, Subject } from "../types/types";
+} from '@mui/material';
+import { ChangeEvent, useContext } from 'react';
+import { PlanContext } from '../context';
+import { statuses } from '../data';
+import { PlanContextProps, Subject } from '../types/types';
 
 export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
   const { contextPlan, updateStatuses } =
@@ -22,7 +22,7 @@ export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
   };
 
   return (
-    <FormControl sx={{ width: "100%" }}>
+    <FormControl sx={{ width: '100%' }}>
       <FormLabel component="legend">Estado</FormLabel>
       <RadioGroup
         aria-label="Status"

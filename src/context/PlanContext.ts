@@ -1,10 +1,10 @@
-import { createContext } from "react";
-import { PlanContextProps } from "../types/types";
+import { createContext } from 'react';
+import { PlanContextProps } from '../types/types';
 
 export const PlanContext = createContext<PlanContextProps>({
   contextPlan: {
-    id: "",
-    branch: "",
+    id: '',
+    branch: '',
     subjects: {},
   },
   updateMode: () => {},

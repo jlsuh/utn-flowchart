@@ -1,11 +1,11 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import { useContext } from "react";
-import { PlanContext } from "../context";
-import { statuses } from "../data";
-import { PlanContextProps } from "../types/types";
-import { findPlanById, replaceWhiteSpace } from "../utils";
-import { StatusMarker } from "./StatusMarker";
-import { SubjectGrid } from "./SubjectGrid";
+import { Box, Grid, Stack, Typography } from '@mui/material';
+import { useContext } from 'react';
+import { PlanContext } from '../context';
+import { statuses } from '../data';
+import { PlanContextProps } from '../types/types';
+import { findPlanById, replaceWhiteSpace } from '../utils';
+import { StatusMarker } from './StatusMarker';
+import { SubjectGrid } from './SubjectGrid';
 
 export const SubjectStack = () => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
@@ -20,16 +20,16 @@ export const SubjectStack = () => {
             container
             key={`level-${index + 1}-grid`}
             sx={{
-              flexDirection: "column",
+              flexDirection: 'column',
             }}
           >
             <Grid
               item
               sx={{
-                alignItems: "baseline",
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
+                alignItems: 'baseline',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
               }}
             >
               <Box>
@@ -39,7 +39,7 @@ export const SubjectStack = () => {
               </Box>
               <Grid
                 item
-                sx={{ display: "flex", flexWrap: "wrap", userSelect: "none" }}
+                sx={{ display: 'flex', flexWrap: 'wrap', userSelect: 'none' }}
               >
                 <Typography sx={{ mr: 0.5 }}>Marcar a todas como:</Typography>
                 {Object.values(statuses).map((status) => (

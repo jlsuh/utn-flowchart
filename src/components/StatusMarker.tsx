@@ -1,7 +1,7 @@
-import { Box, Divider, Link } from "@mui/material";
-import { useContext } from "react";
-import { PlanContext } from "../context";
-import { PlanContextProps, Status, Subject } from "../types/types";
+import { Box, Divider, Link } from '@mui/material';
+import { useContext } from 'react';
+import { PlanContext } from '../context';
+import { PlanContextProps, Status, Subject } from '../types/types';
 
 export const StatusMarker = ({
   status,
@@ -20,10 +20,10 @@ export const StatusMarker = ({
   return (
     <Box
       sx={{
-        "& hr": {
+        '& hr': {
           mx: 0.5,
         },
-        display: "flex",
+        display: 'flex',
       }}
     >
       <Link

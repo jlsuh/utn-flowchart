@@ -1,16 +1,16 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { Subject } from "..";
-import { PlanContext } from "../../context/PlanContext";
-import { modes, statuses } from "../../data/constants";
-import { contextPlanValue, subject } from "./fixture";
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { Subject } from '..';
+import { PlanContext } from '../../context/PlanContext';
+import { modes, statuses } from '../../data/constants';
+import { contextPlanValue, subject } from './fixture';
 
 describe(`<${Subject.name} /> Tests`, () => {
-  const comboBoxRole = "combobox";
-  const optionRole = "option";
-  const radioGroupRole = "radiogroup";
-  const radioRole = "radio";
+  const comboBoxRole = 'combobox';
+  const optionRole = 'option';
+  const radioGroupRole = 'radiogroup';
+  const radioRole = 'radio';
 
   const mockedUpdateStatuses = vi.fn();
   const mockedUpdateMode = vi.fn();
@@ -19,7 +19,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     vi.clearAllMocks();
   });
 
-  it("should render card with subject name", () => {
+  it('should render card with subject name', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
@@ -29,7 +29,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(cardTitle).toBeTruthy();
   });
 
-  it("should render card with modes combobox", () => {
+  it('should render card with modes combobox', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
@@ -39,7 +39,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(options.length).toBe(Object.keys(modes).length);
   });
 
-  it("should select first mode as default", () => {
+  it('should select first mode as default', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
@@ -49,7 +49,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(combobox.value).toBe(JSON.stringify(modes.ANNUAL));
   });
 
-  it("should invoke updateMode on select input change", async () => {
+  it('should invoke updateMode on select input change', async () => {
     const user = userEvent.setup();
     render(
       <PlanContext.Provider
@@ -69,7 +69,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     );
   });
 
-  it("should render card with statuses radio group", () => {
+  it('should render card with statuses radio group', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
@@ -79,7 +79,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(radioGroup.childElementCount).toBe(Object.values(statuses).length);
   });
 
-  it("should check first status as default", () => {
+  it('should check first status as default', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <Subject subject={subject} />
@@ -89,7 +89,7 @@ describe(`<${Subject.name} /> Tests`, () => {
     expect(inputs[0].checked).toBeTruthy();
   });
 
-  it("should invoke updateStatuses on radio group change", async () => {
+  it('should invoke updateStatuses on radio group change', async () => {
     const user = userEvent.setup();
     render(
       <PlanContext.Provider

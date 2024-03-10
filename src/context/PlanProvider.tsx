@@ -1,13 +1,13 @@
-import { ReactNode, useReducer } from "react";
-import { useLocation } from "react-router-dom";
-import { PlanContext } from ".";
-import { plans } from "../data";
-import { ContextPlan, DataPlan, Status, Subject } from "../types/types";
-import { planReducer } from "./planReducer";
-import { planTypes } from "./planTypes";
+import { ReactNode, useReducer } from 'react';
+import { useLocation } from 'react-router-dom';
+import { PlanContext } from '.';
+import { plans } from '../data';
+import { ContextPlan, DataPlan, Status, Subject } from '../types/types';
+import { planReducer } from './planReducer';
+import { planTypes } from './planTypes';
 
 const DEFAULT_PLAN = plans[0];
-const SUBJECTS_KEY = "subjects";
+const SUBJECTS_KEY = 'subjects';
 
 const getFlattenedPlan = ({ id, branch, subjects }: DataPlan) => {
   const flattenedSubjects = Object.values(subjects)

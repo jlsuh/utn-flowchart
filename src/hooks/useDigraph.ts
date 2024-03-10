@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { PlanContext } from "../context";
-import { PlanContextProps } from "../types/types";
-import { Digraph, findPlanById } from "../utils";
+import { useContext } from 'react';
+import { PlanContext } from '../context';
+import { PlanContextProps } from '../types/types';
+import { Digraph, findPlanById } from '../utils';
 
 export const useDigraph = () => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);

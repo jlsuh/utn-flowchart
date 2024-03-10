@@ -1,1 +1,1 @@
-export * from "./renderSVG";
+export * from './renderSVG';

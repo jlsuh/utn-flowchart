@@ -1,24 +1,24 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid } from '@mui/material';
 import {
   ExportSVGButton,
   ShowDigraphButton,
   SubjectStack,
-} from "../components";
+} from '../components';
 
 export const PlanView = () => {
   return (
     <Box sx={{ m: 4 }}>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "flex-end",
+          display: 'flex',
+          justifyContent: 'flex-end',
           mb: 2.5,
         }}
       >
         <Grid
           container
           spacing={1.5}
-          sx={{ justifyContent: { xs: "center", sm: "end" }, my: 1 }}
+          sx={{ justifyContent: { xs: 'center', sm: 'end' }, my: 1 }}
         >
           <Grid item>
             <ShowDigraphButton />

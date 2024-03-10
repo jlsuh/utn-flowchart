@@ -1,1 +1,1 @@
-export * from "./useDigraph";
+export * from './useDigraph';

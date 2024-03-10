@@ -1,5 +1,5 @@
-import { ContextPlan } from "../types/types";
-import { planTypes } from "./planTypes";
+import { ContextPlan } from '../types/types';
+import { planTypes } from './planTypes';
 
 interface PlanAction {
   readonly type: string;

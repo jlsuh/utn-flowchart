@@ -1,19 +1,19 @@
-import { render, screen } from "@testing-library/react";
-import { userEvent } from "@testing-library/user-event";
-import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
-import { SubjectStack } from "..";
-import { PlanContext } from "../../context/PlanContext";
-import { statuses } from "../../data/constants";
-import { findPlanById } from "../../utils";
-import { contextPlanValue, plan1 } from "./fixture";
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { Mock, beforeEach, describe, expect, it, vi } from 'vitest';
+import { SubjectStack } from '..';
+import { PlanContext } from '../../context/PlanContext';
+import { statuses } from '../../data/constants';
+import { findPlanById } from '../../utils';
+import { contextPlanValue, plan1 } from './fixture';
 
-vi.mock("../../../src/utils/findPlanById", () => ({
+vi.mock('../../../src/utils/findPlanById', () => ({
   findPlanById: vi.fn(),
 }));
 
 describe(`<${SubjectStack.name} /> Tests`, () => {
-  const buttonRole = "button";
-  const headingRole = "heading";
+  const buttonRole = 'button';
+  const headingRole = 'heading';
 
   const mockedUpdateStatuses = vi.fn();
 
@@ -22,7 +22,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     (findPlanById as Mock).mockImplementation(() => plan1);
   });
 
-  it("should render stack with plan subjects", () => {
+  it('should render stack with plan subjects', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <SubjectStack />
@@ -34,7 +34,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     expect(subjects.length).toBe(plan1.subjects.flat().length);
   });
 
-  it("should render all status markers", () => {
+  it('should render all status markers', () => {
     render(
       <PlanContext.Provider value={contextPlanValue}>
         <SubjectStack />
@@ -46,7 +46,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
     );
   });
 
-  it("should invoke updateSubject on status marker click", async () => {
+  it('should invoke updateSubject on status marker click', async () => {
     const user = userEvent.setup();
     render(
       <PlanContext.Provider

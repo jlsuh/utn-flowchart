@@ -1,16 +1,16 @@
-import CircleIcon from "@mui/icons-material/Circle";
+import CircleIcon from '@mui/icons-material/Circle';
 import {
   Card,
   CardActions,
   CardContent,
   Grid,
   Typography,
-} from "@mui/material";
-import { useContext } from "react";
-import { PlanContext } from "../context";
-import { PlanContextProps, Subject as SubjectProps } from "../types/types";
-import { ModeSelect } from "./ModeSelect";
-import { StatusRadioGroup } from "./StatusRadioGroup";
+} from '@mui/material';
+import { useContext } from 'react';
+import { PlanContext } from '../context';
+import { PlanContextProps, Subject as SubjectProps } from '../types/types';
+import { ModeSelect } from './ModeSelect';
+import { StatusRadioGroup } from './StatusRadioGroup';
 
 export const Subject = ({ subject }: { subject: SubjectProps }) => {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
@@ -24,18 +24,18 @@ export const Subject = ({ subject }: { subject: SubjectProps }) => {
         variant="outlined"
         sx={{
           borderRadius: 0,
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "space-between",
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          justifyContent: 'space-between',
           p: 2,
         }}
       >
         <CardContent
           sx={{
             p: 0,
-            display: "flex",
-            justifyContent: "space-between",
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
         >
           <Typography component="h4" variant="h6">
@@ -51,11 +51,11 @@ export const Subject = ({ subject }: { subject: SubjectProps }) => {
         </CardContent>
         <CardActions
           sx={{
-            display: "flex",
-            flexDirection: "column",
+            display: 'flex',
+            flexDirection: 'column',
             mt: 2,
             p: 0,
-            width: "100%",
+            width: '100%',
           }}
         >
           <StatusRadioGroup subject={subject} />

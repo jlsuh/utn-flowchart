@@ -1,5 +1,5 @@
-import { modes, options, statuses } from "../data";
-import { Subject } from "../types/types";
+import { modes, options, statuses } from '../data';
+import { Subject } from '../types/types';
 
 export class Digraph {
   private readonly allSubjects: ReadonlyArray<Subject>;
@@ -14,7 +14,7 @@ export class Digraph {
     this.allSubjects = subjectsByLevel.flat();
     this.contextSubjects = contextSubjects;
     this.subjectsByLevel = subjectsByLevel;
-    this.digraph = "";
+    this.digraph = '';
   }
 
   public generate() {
@@ -50,7 +50,7 @@ export class Digraph {
   }
 
   private getJoinedOptions(options: ReadonlyArray<string>) {
-    return `[${options.join("")}]`;
+    return `[${options.join('')}]`;
   }
 
   private appendString(string: string) {
@@ -58,15 +58,15 @@ export class Digraph {
   }
 
   private appendOpening() {
-    this.appendString("{");
+    this.appendString('{');
   }
 
   private appendClosing() {
-    this.appendString("}");
+    this.appendString('}');
   }
 
   private appendDigraph() {
-    this.appendString("digraph");
+    this.appendString('digraph');
     this.appendOpening();
   }
 
@@ -92,7 +92,7 @@ export class Digraph {
     this.appendOpening();
     this.appendDependenciesNames(dependencies);
     this.appendClosing();
-    this.appendString("->");
+    this.appendString('->');
     this.appendSubjectNames([subject.name]);
     this.appendString(this.getJoinedOptions(options));
   }
@@ -100,7 +100,7 @@ export class Digraph {
   private appendSameRank(levelSubjects: ReadonlyArray<Subject>) {
     if (levelSubjects.length > 1) {
       this.appendOpening();
-      this.appendString("rank=same");
+      this.appendString('rank=same');
       this.appendOpening();
       const subjectNames = levelSubjects.map((subject) => subject.name);
       this.appendSubjectNames(subjectNames);

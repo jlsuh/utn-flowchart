@@ -1,6 +1,6 @@
 export const modes = {
-  ANNUAL: "Anual",
-  QUADRIMESTRAL: "Cuatrimestral",
+  ANNUAL: 'Anual',
+  QUADRIMESTRAL: 'Cuatrimestral',
 } as const;
 
 export const options = {
@@ -12,20 +12,20 @@ export const options = {
 
 export const statuses = {
   PENDING: {
-    name: "Falta cursada",
-    color: "#d3d3d3",
+    name: 'Falta cursada',
+    color: '#d3d3d3',
   },
   IN_PROGRESS: {
-    name: "Cursando",
-    color: "#00BFFF",
+    name: 'Cursando',
+    color: '#00BFFF',
   },
   NEED_FINAL_EXAM: {
-    name: "Firmada",
-    color: "#FFA500",
+    name: 'Firmada',
+    color: '#FFA500',
   },
   PASSED: {
-    name: "Aprobada",
-    color: "#4CAF50",
+    name: 'Aprobada',
+    color: '#4CAF50',
   },
 } as const;
 

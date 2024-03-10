@@ -1,4 +1,4 @@
-import { instance } from "@viz-js/viz";
+import { instance } from '@viz-js/viz';
 
 export const renderSVG = async (
   digraph: string,

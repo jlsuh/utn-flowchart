@@ -1,4 +1,4 @@
-import { plans } from "../data";
+import { plans } from '../data';
 
 export const findPlanById = (id: string) => {
   return (
