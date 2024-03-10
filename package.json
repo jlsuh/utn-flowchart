@@ -18,9 +18,11 @@
     "url": "https://github.com/jlsuh/utn-flowchart/issues"
   },
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier:check": "prettier . --check --config .prettier.config.mjs",
+    "prettier:write": "prettier . --write --config .prettier.config.mjs",
     "preview": "vite preview",
     "test": "vitest"
   },
