@@ -1,4 +1,4 @@
-import { ContextPlan } from '../types/types';
+import type { ContextPlan } from '../types/types';
 import { planTypes } from './planTypes';
 
 interface PlanAction {

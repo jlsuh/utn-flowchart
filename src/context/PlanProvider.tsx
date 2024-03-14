@@ -1,8 +1,8 @@
-import { ReactNode, useReducer } from 'react';
+import { type ReactNode, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PlanContext } from '.';
 import { plans } from '../data';
-import { ContextPlan, DataPlan, Status, Subject } from '../types/types';
+import type { ContextPlan, DataPlan, Status, Subject } from '../types/types';
 import { planReducer } from './planReducer';
 import { planTypes } from './planTypes';
 
@@ -13,13 +13,13 @@ const getFlattenedPlan = ({ id, branch, subjects }: DataPlan) => {
   const flattenedSubjects = Object.values(subjects)
     .flat()
     .reduce(
-      (acc, subject) => ({
-        ...acc,
-        [subject.id]: {
-          modes: subject.modes,
-          status: subject.status,
-        },
-      }),
+      (acc, subject) =>
+        Object.assign(acc, {
+          [subject.id]: {
+            modes: subject.modes,
+            status: subject.status,
+          },
+        }),
       {},
     );
   return {
@@ -88,12 +88,12 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     newStatus: Status,
   ) => {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
-    subjects.forEach((subject) => {
+    for (const subject of subjects) {
       newSubjects[subject.id] = {
         ...newSubjects[subject.id],
         status: newStatus,
       };
-    });
+    }
     const newPlan = {
       ...contextPlan,
       subjects: newSubjects,

@@ -5,10 +5,10 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
-import { ChangeEvent, useContext } from 'react';
+import { type ChangeEvent, useContext } from 'react';
 import { PlanContext } from '../context';
 import { statuses } from '../data';
-import { PlanContextProps, Subject } from '../types/types';
+import type { PlanContextProps, Subject } from '../types/types';
 
 export const StatusRadioGroup = ({ subject }: { subject: Subject }) => {
   const { contextPlan, updateStatuses } =

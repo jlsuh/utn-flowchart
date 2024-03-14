@@ -1,5 +1,5 @@
 import { Box, Toolbar } from '@mui/material';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { NavBar } from '../components';
 
 export const PlanLayout = ({ children }: { children: ReactNode }) => {

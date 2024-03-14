@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useContext } from 'react';
 import { PlanContext } from '../context';
 import { statuses } from '../data';
-import { PlanContextProps } from '../types/types';
+import type { PlanContextProps } from '../types/types';
 import { findPlanById, replaceWhiteSpace } from '../utils';
 import { StatusMarker } from './StatusMarker';
 import { SubjectGrid } from './SubjectGrid';

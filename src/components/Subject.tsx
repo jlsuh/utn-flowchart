@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { useContext } from 'react';
 import { PlanContext } from '../context';
-import { PlanContextProps, Subject as SubjectProps } from '../types/types';
+import type { PlanContextProps, Subject as SubjectProps } from '../types/types';
 import { ModeSelect } from './ModeSelect';
 import { StatusRadioGroup } from './StatusRadioGroup';
 

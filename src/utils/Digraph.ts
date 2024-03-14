@@ -1,5 +1,5 @@
 import { modes, options, statuses } from '../data';
-import { Subject } from '../types/types';
+import type { Subject } from '../types/types';
 
 export class Digraph {
   private readonly allSubjects: ReadonlyArray<Subject>;
@@ -75,9 +75,9 @@ export class Digraph {
   }
 
   private appendSubjectNames(names: ReadonlyArray<string>) {
-    names.forEach((name) => {
+    for (const name of names) {
       this.appendString(`"${name}"`);
-    });
+    }
   }
 
   private appendDependenciesNames(dependencies: ReadonlyArray<Subject>) {
@@ -144,11 +144,11 @@ export class Digraph {
   }
 
   private appendDependencies(nonPassedLevelSubjects: ReadonlyArray<Subject>) {
-    nonPassedLevelSubjects.forEach((nonPassedSubject) => {
+    for (const nonPassedSubject of nonPassedLevelSubjects) {
       this.appendNodeOptions(nonPassedSubject.name, nonPassedSubject.id);
       this.appendTakenDependencies(nonPassedSubject);
       this.appendPassedDependencies(nonPassedSubject);
-    });
+    }
   }
 
   private appendNonPassedSubjects(levelSubjects: ReadonlyArray<Subject>) {
@@ -158,8 +158,8 @@ export class Digraph {
   }
 
   private appendTransitions() {
-    this.subjectsByLevel.forEach((levelSubjects) => {
+    for (const levelSubjects of this.subjectsByLevel) {
       this.appendNonPassedSubjects(levelSubjects);
-    });
+    }
   }
 }
