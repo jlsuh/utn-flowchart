@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, NativeSelect } from '@mui/material';
-import { ChangeEvent, useContext } from 'react';
+import { type ChangeEvent, useContext } from 'react';
 import { PlanContext } from '../context';
-import { PlanContextProps, Subject } from '../types/types';
+import type { PlanContextProps, Subject } from '../types/types';
 import { replaceWhiteSpace } from '../utils';
 
 export const ModeSelect = ({ subject }: { subject: Subject }) => {
@@ -22,7 +22,7 @@ export const ModeSelect = ({ subject }: { subject: Subject }) => {
       <NativeSelect
         inputProps={{
           id: `${subject.id}-input-label`,
-          name: '' + subject.id,
+          name: `${subject.id}`,
         }}
         onChange={onSelectInputChange}
         value={JSON.stringify(contextMode)}

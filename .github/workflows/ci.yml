@@ -18,7 +18,6 @@ jobs:
         with:
           node-version: latest
       - run: yarn install
-      - run: yarn prettier:check
-      - run: yarn lint
+      - run: yarn ci
       - run: yarn test
       - run: yarn build

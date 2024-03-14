@@ -1,4 +1,4 @@
-import { DataPlan } from '../types/types';
+import type { DataPlan } from '../types/types';
 import { DEFAULT_STATUS, modes } from './constants';
 
 export const r23: DataPlan = {

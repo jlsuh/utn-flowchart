@@ -1,3 +1,8 @@
 {
-  "prettier.configPath": ".prettier.config.mjs"
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.fixAll": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome"
 }
