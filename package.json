@@ -18,6 +18,7 @@
     "ci": "biome ci .",
     "dev": "vite",
     "format": "biome check --apply-unsafe .",
+    "install": "biome migrate",
     "preview": "vite preview",
     "test": "vitest"
   },
