@@ -1,10 +1,10 @@
+import { PlanContext } from '@/context';
+import type { PlanContextProps, SubjectProps } from '@/types';
+import { replaceWhiteSpace } from '@/utils';
 import { FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { type ChangeEvent, useContext } from 'react';
-import { PlanContext } from '../context';
-import type { PlanContextProps, Subject } from '../types/types';
-import { replaceWhiteSpace } from '../utils';
 
-export const ModeSelect = ({ subject }: { subject: Subject }) => {
+function ModeSelect({ subject }: { subject: SubjectProps }) {
   const { contextPlan, updateMode } = useContext<PlanContextProps>(PlanContext);
   const targetSubject = contextPlan.subjects[subject.id];
   const contextMode = targetSubject.modes[0];
@@ -38,4 +38,6 @@ export const ModeSelect = ({ subject }: { subject: Subject }) => {
       </NativeSelect>
     </FormControl>
   );
-};
+}
+
+export default ModeSelect;

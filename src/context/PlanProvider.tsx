@@ -1,10 +1,9 @@
+import { PlanContext } from '@/context';
+import { plans } from '@/data';
+import type { ContextPlan, DataPlan, Status, SubjectProps } from '@/types';
 import { type ReactNode, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
-import { PlanContext } from '.';
-import { plans } from '../data';
-import type { ContextPlan, DataPlan, Status, Subject } from '../types/types';
-import { planReducer } from './planReducer';
-import { planTypes } from './planTypes';
+import { planReducer, planTypes } from './planReducer';
 
 const DEFAULT_PLAN = plans[0];
 const SUBJECTS_KEY = 'subjects';
@@ -38,7 +37,7 @@ const initializer = (initialArg: ContextPlan) => {
   return JSON.parse(subjectsJSON);
 };
 
-export const PlanProvider = ({ children }: { children: ReactNode }) => {
+function PlanProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [contextPlan, dispatch] = useReducer(
     planReducer,
@@ -49,7 +48,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
     (plan) => plan.id === location.pathname.slice(1),
   );
 
-  const updatePlan = (newPlan: ContextPlan) => {
+  function updatePlan(newPlan: ContextPlan) {
     localStorage.setItem(SUBJECTS_KEY, JSON.stringify(newPlan));
     const action = {
       type: planTypes.updatePlan,
@@ -58,14 +57,14 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
       },
     };
     dispatch(action);
-  };
+  }
 
   if (currentPlan && currentPlan.id !== contextPlan.id) {
     const newPlan = getFlattenedPlan(currentPlan);
     updatePlan(newPlan);
   }
 
-  const updateMode = (subjectId: string, newMode: string) => {
+  function updateMode(subjectId: string, newMode: string) {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
     newSubjects[subjectId] = {
       ...newSubjects[subjectId],
@@ -81,12 +80,12 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
       subjects: newSubjects,
     };
     updatePlan(newPlan);
-  };
+  }
 
-  const updateStatuses = (
-    subjects: ReadonlyArray<Subject>,
+  function updateStatuses(
+    subjects: ReadonlyArray<SubjectProps>,
     newStatus: Status,
-  ) => {
+  ) {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
     for (const subject of subjects) {
       newSubjects[subject.id] = {
@@ -99,7 +98,7 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
       subjects: newSubjects,
     };
     updatePlan(newPlan);
-  };
+  }
 
   return (
     <PlanContext.Provider
@@ -112,4 +111,6 @@ export const PlanProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </PlanContext.Provider>
   );
-};
+}
+
+export default PlanProvider;

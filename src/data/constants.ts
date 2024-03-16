@@ -1,16 +1,16 @@
-export const modes = {
+const modes = {
   ANNUAL: 'Anual',
   QUADRIMESTRAL: 'Cuatrimestral',
 } as const;
 
-export const options = {
+const options = {
   annualSubject: `shape="box"`,
   globalArrowSize: `arrowsize="0.5"`,
   globalDigraph: `ranksep="3"rankdir="BT"nodesep="0.3"`,
   takenTransitionEdgeStyle: `style="dotted"penwidth="2"`,
 } as const;
 
-export const statuses = {
+const statuses = {
   PENDING: {
     name: 'Falta cursada',
     color: '#d3d3d3',
@@ -29,4 +29,6 @@ export const statuses = {
   },
 } as const;
 
-export const DEFAULT_STATUS = statuses.PENDING;
+const DEFAULT_STATUS = statuses.PENDING;
+
+export { DEFAULT_STATUS, modes, options, statuses };

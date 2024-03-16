@@ -1,8 +1,8 @@
+import { NavBar } from '@/components';
 import { Box, Toolbar } from '@mui/material';
 import type { ReactNode } from 'react';
-import { NavBar } from '../components';
 
-export const PlanLayout = ({ children }: { children: ReactNode }) => {
+function PlanLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <NavBar />
@@ -12,4 +12,6 @@ export const PlanLayout = ({ children }: { children: ReactNode }) => {
       </Box>
     </>
   );
-};
+}
+
+export default PlanLayout;

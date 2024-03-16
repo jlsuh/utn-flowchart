@@ -1,15 +1,15 @@
+import { PlanContext } from '@/context';
+import type { PlanContextProps, Status, SubjectProps } from '@/types';
 import { Box, Divider, Link } from '@mui/material';
 import { useContext } from 'react';
-import { PlanContext } from '../context';
-import type { PlanContextProps, Status, Subject } from '../types/types';
 
-export const StatusMarker = ({
+function StatusMarker({
   status,
   levelSubjects,
 }: {
   status: Status;
-  levelSubjects: ReadonlyArray<Subject>;
-}) => {
+  levelSubjects: ReadonlyArray<SubjectProps>;
+}) {
   const { updateStatuses } = useContext<PlanContextProps>(PlanContext);
 
   const handleClickStatusMarker = () => {
@@ -36,4 +36,6 @@ export const StatusMarker = ({
       <Divider orientation="vertical" flexItem />
     </Box>
   );
-};
+}
+
+export default StatusMarker;

@@ -1,1 +1,1 @@
-export * from './renderSVG';
+export { default as renderSVG } from './renderSVG';

@@ -1,9 +1,9 @@
+import { Subject } from '@/components';
+import { PlanContext } from '@/context';
+import { modes, statuses } from '@/data';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { Subject } from '..';
-import { PlanContext } from '../../context/PlanContext';
-import { modes, statuses } from '../../data/constants';
+import { describe, expect, it, vi } from 'vitest';
 import { contextPlanValue, subject } from './fixture';
 
 describe(`<${Subject.name} /> Tests`, () => {
@@ -11,13 +11,6 @@ describe(`<${Subject.name} /> Tests`, () => {
   const optionRole = 'option';
   const radioGroupRole = 'radiogroup';
   const radioRole = 'radio';
-
-  const mockedUpdateStatuses = vi.fn();
-  const mockedUpdateMode = vi.fn();
-
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
 
   it('should render card with subject name', () => {
     render(
@@ -50,6 +43,7 @@ describe(`<${Subject.name} /> Tests`, () => {
   });
 
   it('should invoke updateMode on select input change', async () => {
+    const mockedUpdateMode = vi.fn();
     const user = userEvent.setup();
     render(
       <PlanContext.Provider
@@ -90,6 +84,7 @@ describe(`<${Subject.name} /> Tests`, () => {
   });
 
   it('should invoke updateStatuses on radio group change', async () => {
+    const mockedUpdateStatuses = vi.fn();
     const user = userEvent.setup();
     render(
       <PlanContext.Provider

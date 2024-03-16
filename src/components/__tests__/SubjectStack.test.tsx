@@ -1,26 +1,17 @@
+import { SubjectStack } from '@/components';
+import { PlanContext } from '@/context';
+import { statuses } from '@/data';
+import * as utils from '@/utils';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { type Mock, beforeEach, describe, expect, it, vi } from 'vitest';
-import { SubjectStack } from '..';
-import { PlanContext } from '../../context/PlanContext';
-import { statuses } from '../../data/constants';
-import { findPlanById } from '../../utils';
+import { describe, expect, it, vi } from 'vitest';
 import { contextPlanValue, plan1 } from './fixture';
-
-vi.mock('../../../src/utils/findPlanById', () => ({
-  findPlanById: vi.fn(),
-}));
 
 describe(`<${SubjectStack.name} /> Tests`, () => {
   const buttonRole = 'button';
   const headingRole = 'heading';
 
-  const mockedUpdateStatuses = vi.fn();
-
-  beforeEach(() => {
-    vi.clearAllMocks();
-    (findPlanById as Mock).mockImplementation(() => plan1);
-  });
+  vi.spyOn(utils, 'findPlanById').mockReturnValue(plan1);
 
   it('should render stack with plan subjects', () => {
     render(
@@ -47,6 +38,7 @@ describe(`<${SubjectStack.name} /> Tests`, () => {
   });
 
   it('should invoke updateSubject on status marker click', async () => {
+    const mockedUpdateStatuses = vi.fn();
     const user = userEvent.setup();
     render(
       <PlanContext.Provider

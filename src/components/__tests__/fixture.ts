@@ -1,9 +1,5 @@
-import { DEFAULT_STATUS, modes } from '../../data';
-import type {
-  ContextPlan,
-  DataPlan,
-  PlanContextProps,
-} from '../../types/types';
+import { DEFAULT_STATUS, modes } from '@/data';
+import type { ContextPlan, DataPlan, PlanContextProps } from '@/types';
 
 const id1 = 'subject-1';
 const id2 = 'subject-2';
