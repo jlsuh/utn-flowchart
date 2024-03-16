@@ -1,6 +1,6 @@
 import { PlanContext } from '@/context';
 import { plans } from '@/data';
-import type { ContextPlan, DataPlan, Status, Subject } from '@/types';
+import type { ContextPlan, DataPlan, Status, SubjectProps } from '@/types';
 import { type ReactNode, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 import { planReducer, planTypes } from './planReducer';
@@ -82,7 +82,10 @@ function PlanProvider({ children }: { children: ReactNode }) {
     updatePlan(newPlan);
   }
 
-  function updateStatuses(subjects: ReadonlyArray<Subject>, newStatus: Status) {
+  function updateStatuses(
+    subjects: ReadonlyArray<SubjectProps>,
+    newStatus: Status,
+  ) {
     const newSubjects = JSON.parse(JSON.stringify(contextPlan.subjects));
     for (const subject of subjects) {
       newSubjects[subject.id] = {

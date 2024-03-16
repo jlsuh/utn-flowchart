@@ -1,5 +1,5 @@
 import { PlanContext } from '@/context';
-import type { PlanContextProps, Status, Subject } from '@/types';
+import type { PlanContextProps, Status, SubjectProps } from '@/types';
 import { Box, Divider, Link } from '@mui/material';
 import { useContext } from 'react';
 
@@ -8,7 +8,7 @@ function StatusMarker({
   levelSubjects,
 }: {
   status: Status;
-  levelSubjects: ReadonlyArray<Subject>;
+  levelSubjects: ReadonlyArray<SubjectProps>;
 }) {
   const { updateStatuses } = useContext<PlanContextProps>(PlanContext);
 
