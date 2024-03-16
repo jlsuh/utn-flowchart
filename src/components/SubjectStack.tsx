@@ -1,13 +1,12 @@
+import { StatusMarker, SubjectGrid } from '@/components';
+import { PlanContext } from '@/context';
+import { statuses } from '@/data';
+import type { PlanContextProps } from '@/types';
+import { findPlanById, replaceWhiteSpace } from '@/utils';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useContext } from 'react';
-import { PlanContext } from '../context';
-import { statuses } from '../data';
-import type { PlanContextProps } from '../types/types';
-import { findPlanById, replaceWhiteSpace } from '../utils';
-import { StatusMarker } from './StatusMarker';
-import { SubjectGrid } from './SubjectGrid';
 
-export const SubjectStack = () => {
+function SubjectStack() {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const plan = findPlanById(contextPlan.id);
   const subjectsByLevel = plan.subjects;
@@ -58,4 +57,6 @@ export const SubjectStack = () => {
         ))}
     </Stack>
   );
-};
+}
+
+export default SubjectStack;

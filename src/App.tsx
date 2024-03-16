@@ -1,8 +1,8 @@
+import { PlanProvider } from '@/context';
+import { AppTheme } from '@/theme';
 import AppRouter from './AppRouter';
-import { PlanProvider } from './context';
-import { AppTheme } from './theme';
 
-export default function App() {
+function App() {
   return (
     <AppTheme>
       <PlanProvider>
@@ -11,3 +11,5 @@ export default function App() {
     </AppTheme>
   );
 }
+
+export default App;

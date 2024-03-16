@@ -1,3 +1,6 @@
+import { ModeSelect, StatusRadioGroup } from '@/components';
+import { PlanContext } from '@/context';
+import type { PlanContextProps, Subject as SubjectProps } from '@/types';
 import CircleIcon from '@mui/icons-material/Circle';
 import {
   Card,
@@ -7,12 +10,8 @@ import {
   Typography,
 } from '@mui/material';
 import { useContext } from 'react';
-import { PlanContext } from '../context';
-import type { PlanContextProps, Subject as SubjectProps } from '../types/types';
-import { ModeSelect } from './ModeSelect';
-import { StatusRadioGroup } from './StatusRadioGroup';
 
-export const Subject = ({ subject }: { subject: SubjectProps }) => {
+function Subject({ subject }: { subject: SubjectProps }) {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const { subjects } = contextPlan;
   const contextSubject = subjects[subject.id];
@@ -64,4 +63,6 @@ export const Subject = ({ subject }: { subject: SubjectProps }) => {
       </Card>
     </Grid>
   );
-};
+}
+
+export default Subject;

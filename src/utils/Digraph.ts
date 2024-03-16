@@ -1,7 +1,7 @@
-import { modes, options, statuses } from '../data';
-import type { Subject } from '../types/types';
+import { modes, options, statuses } from '@/data';
+import type { Subject } from '@/types';
 
-export class Digraph {
+class Digraph {
   private readonly allSubjects: ReadonlyArray<Subject>;
   private readonly contextSubjects: Record<string, Subject>;
   private readonly subjectsByLevel: ReadonlyArray<ReadonlyArray<Subject>>;
@@ -163,3 +163,5 @@ export class Digraph {
     }
   }
 }
+
+export default Digraph;

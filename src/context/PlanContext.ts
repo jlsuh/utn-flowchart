@@ -1,7 +1,7 @@
+import type { PlanContextProps } from '@/types';
 import { createContext } from 'react';
-import type { PlanContextProps } from '../types/types';
 
-export const PlanContext = createContext<PlanContextProps>({
+const PlanContext = createContext<PlanContextProps>({
   contextPlan: {
     id: '',
     branch: '',
@@ -10,3 +10,5 @@ export const PlanContext = createContext<PlanContextProps>({
   updateMode: () => {},
   updateStatuses: () => {},
 });
+
+export default PlanContext;

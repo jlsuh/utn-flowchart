@@ -1,1 +1,1 @@
-export * from './PlanLayout';
+export { default as PlanLayout } from './PlanLayout';

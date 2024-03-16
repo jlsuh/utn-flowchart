@@ -1,12 +1,12 @@
+import { Subject } from '@/components';
+import type { Subject as SubjectProps } from '@/types';
 import { Grid } from '@mui/material';
-import { Subject } from '.';
-import type { Subject as SubjectProps } from '../types/types';
 
-export const SubjectGrid = ({
+function SubjectGrid({
   levelSubjects,
 }: {
   levelSubjects: ReadonlyArray<SubjectProps>;
-}) => {
+}) {
   return (
     <Grid
       container
@@ -22,4 +22,6 @@ export const SubjectGrid = ({
       ))}
     </Grid>
   );
-};
+}
+
+export default SubjectGrid;

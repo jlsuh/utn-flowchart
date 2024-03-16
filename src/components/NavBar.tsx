@@ -1,8 +1,8 @@
+import { PlanSelect } from '@/components';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
-import { PlanSelect } from './PlanSelect';
 
-export const NavBar = () => {
+function NavBar() {
   return (
     <AppBar
       sx={{
@@ -46,4 +46,6 @@ export const NavBar = () => {
       </Toolbar>
     </AppBar>
   );
-};
+}
+
+export default NavBar;

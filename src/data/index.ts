@@ -1,2 +1,2 @@
 export * from './constants';
-export * from './plans';
+export { default as plans } from './plans';

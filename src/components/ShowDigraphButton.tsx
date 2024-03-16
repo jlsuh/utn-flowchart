@@ -1,8 +1,8 @@
+import { useDigraph } from '@/hooks';
+import { renderSVG } from '@/services';
+import { composeSVGObjectURL } from '@/utils';
 import PolylineIcon from '@mui/icons-material/Polyline';
 import { Button, Typography } from '@mui/material';
-import { useDigraph } from '../hooks';
-import { renderSVG } from '../services';
-import { composeSVGObjectURL } from '../utils';
 
 const continuation = (svg: SVGElement) => {
   const url = composeSVGObjectURL(svg);
@@ -14,7 +14,7 @@ const continuation = (svg: SVGElement) => {
   }
 };
 
-export const ShowDigraphButton = () => {
+function ShowDigraphButton() {
   const { composeDigraph } = useDigraph();
 
   const handleClickShowDigraph = () => {
@@ -28,4 +28,6 @@ export const ShowDigraphButton = () => {
       <Typography>Ver Digrafo</Typography>
     </Button>
   );
-};
+}
+
+export default ShowDigraphButton;

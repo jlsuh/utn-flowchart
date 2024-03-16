@@ -1,1 +1,1 @@
-export * from './useDigraph';
+export { default as useDigraph } from './useDigraph';

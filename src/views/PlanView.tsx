@@ -1,11 +1,7 @@
+import { ExportSVGButton, ShowDigraphButton, SubjectStack } from '@/components';
 import { Box, Grid } from '@mui/material';
-import {
-  ExportSVGButton,
-  ShowDigraphButton,
-  SubjectStack,
-} from '../components';
 
-export const PlanView = () => {
+function PlanView() {
   return (
     <Box sx={{ m: 4 }}>
       <Box
@@ -31,4 +27,6 @@ export const PlanView = () => {
       <SubjectStack />
     </Box>
   );
-};
+}
+
+export default PlanView;

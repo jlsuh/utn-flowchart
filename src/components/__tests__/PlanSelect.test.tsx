@@ -1,15 +1,14 @@
+import { PlanSelect } from '@/components';
+import { PlanContext } from '@/context';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { PlanContext } from '../../context';
-import { PlanSelect } from '../PlanSelect';
+import { describe, expect, it, vi } from 'vitest';
 import { contextPlanValue, plan1, plan2, planId1, planId2 } from './fixture';
 
 const mockedUseNavigate = vi.fn();
-
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom');
+vi.mock('react-router-dom', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('react-router-dom')>();
   return {
     ...actual,
     useNavigate: () => mockedUseNavigate,
@@ -19,10 +18,6 @@ vi.mock('react-router-dom', async () => {
 describe(`<${PlanSelect.name} /> Tests`, () => {
   const comboboxRole = 'combobox';
   const optionRole = 'option';
-
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
 
   it('should navigate on select change', async () => {
     const user = userEvent.setup();

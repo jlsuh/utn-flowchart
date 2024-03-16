@@ -1,7 +1,7 @@
-import type { DataPlan } from '../types/types';
-import { DEFAULT_STATUS, modes } from './constants';
+import { DEFAULT_STATUS, modes } from '@/data';
+import type { DataPlan } from '@/types';
 
-export const r23: DataPlan = {
+const r23: DataPlan = {
   id: 'r23',
   branch: 'FRBA',
   subjects: [
@@ -323,3 +323,5 @@ export const r23: DataPlan = {
     ],
   ],
 };
+
+export default r23;

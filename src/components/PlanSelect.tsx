@@ -1,3 +1,6 @@
+import { PlanContext } from '@/context';
+import { plans } from '@/data';
+import type { PlanContextProps } from '@/types';
 import {
   FormControl,
   MenuItem,
@@ -6,9 +9,6 @@ import {
 } from '@mui/material';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PlanContext } from '../context/PlanContext';
-import { plans } from '../data';
-import type { PlanContextProps } from '../types/types';
 
 const selectStyles = {
   color: 'primary.contrastText',
@@ -29,7 +29,7 @@ const selectStyles = {
   },
 };
 
-export const PlanSelect = ({ availablePlans = plans }) => {
+function PlanSelect({ availablePlans = plans }) {
   const { contextPlan } = useContext<PlanContextProps>(PlanContext);
   const navigate = useNavigate();
 
@@ -63,4 +63,6 @@ export const PlanSelect = ({ availablePlans = plans }) => {
       </Select>
     </FormControl>
   );
-};
+}
+
+export default PlanSelect;

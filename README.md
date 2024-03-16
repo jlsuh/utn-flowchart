@@ -87,7 +87,7 @@ La aplicación ejecutará en `localhost:80`.
 Cada plan de estudio debe ser agregado en el directorio `src/data/<codigoDelPlan>.ts` como un archivo que exporte un único `object`. El mismo debe ser de la forma:
 
 ```ts
-export const codigoDelPlan: DataPlan = {
+const codigoDelPlan: DataPlan = {
   id: 'codigoDelPlan',
   branch: 'codigoDeLaRegional',
   subjects: [
@@ -170,6 +170,8 @@ export const codigoDelPlan: DataPlan = {
     /* Más niveles según corresponda */
   ],
 };
+
+export default codigoDelPlan;
 ```
 
 **Observaciones**:
@@ -184,9 +186,13 @@ Finalmente, el objeto del plan debe ser incorporado al `array` de planes existen
 
 ```ts
 /* ... */
-import { codigoDelPlan } from './codigoDelPlan';
+import codigoDelPlan from './codigoDelPlan';
 
-export const plans = [codigoDelPlan /*, Otros planes según corresponda*/];
+const plans: ReadonlyArray<DataPlan> = [
+  codigoDelPlan /*, Otros planes según corresponda*/,
+];
+
+export default plans;
 ```
 
 La incorporación del plan de estudio al `array` se verá reflejada en la aplicación mediante una nueva `Route`, siendo la misma navegable desde el `Select` de planes de estudio:
