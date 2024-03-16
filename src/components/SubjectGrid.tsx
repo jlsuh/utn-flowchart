@@ -1,5 +1,5 @@
 import { Subject } from '@/components';
-import type { Subject as SubjectProps } from '@/types';
+import type { SubjectProps } from '@/types';
 import { Grid } from '@mui/material';
 
 function SubjectGrid({

@@ -1,6 +1,6 @@
 import { ModeSelect, StatusRadioGroup } from '@/components';
 import { PlanContext } from '@/context';
-import type { PlanContextProps, Subject as SubjectProps } from '@/types';
+import type { PlanContextProps, SubjectProps } from '@/types';
 import CircleIcon from '@mui/icons-material/Circle';
 import {
   Card,

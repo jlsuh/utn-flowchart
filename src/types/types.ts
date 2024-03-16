@@ -8,7 +8,7 @@ interface PlanContextProps {
   readonly contextPlan: ContextPlan;
   readonly updateMode: (subjectId: string, newMode: string) => void;
   readonly updateStatuses: (
-    subjects: ReadonlyArray<Subject>,
+    subjects: ReadonlyArray<SubjectProps>,
     newStatus: Status,
   ) => void;
 }
@@ -18,7 +18,7 @@ interface Status {
   readonly name: string;
 }
 
-interface Subject {
+interface SubjectProps {
   readonly id: string;
   readonly modes: ReadonlyArray<string>;
   readonly name: string;
@@ -27,8 +27,8 @@ interface Subject {
   readonly taken: ReadonlyArray<string>;
 }
 
-type ContextPlan = Plan<Record<string, Subject>>;
+type ContextPlan = Plan<Record<string, SubjectProps>>;
 
-type DataPlan = Plan<ReadonlyArray<ReadonlyArray<Subject>>>;
+type DataPlan = Plan<ReadonlyArray<ReadonlyArray<SubjectProps>>>;
 
-export type { ContextPlan, DataPlan, PlanContextProps, Status, Subject };
+export type { ContextPlan, DataPlan, PlanContextProps, Status, SubjectProps };
