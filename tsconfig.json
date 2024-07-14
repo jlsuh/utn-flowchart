@@ -22,6 +22,5 @@
     "strict": true,
     "target": "ESNext",
     "useDefineForClassFields": true
-  },
-  "references": [{ "path": "./tsconfig.vite.json" }]
+  }
 }
