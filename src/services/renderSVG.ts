@@ -1,11 +1,11 @@
-import { instance } from '@viz-js/viz';
+import getVizInstance from './getVizInstance';
 
 async function renderSVG(
   digraph: string,
   continuation: (svg: SVGElement) => void,
 ) {
-  const viz = await instance();
-  const svg = viz.renderSVGElement(digraph);
+  const vizInstance = await getVizInstance();
+  const svg = vizInstance.renderSVGElement(digraph);
   continuation(svg);
 }
 
