@@ -23,27 +23,27 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/react": "11.11.4",
-    "@emotion/styled": "11.11.5",
-    "@mui/icons-material": "5.16.1",
-    "@mui/material": "5.16.1",
+    "@emotion/react": "11.13.0",
+    "@emotion/styled": "11.13.0",
+    "@mui/icons-material": "5.16.4",
+    "@mui/material": "5.16.4",
     "@viz-js/viz": "3.7.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "6.24.1"
+    "react-router-dom": "6.25.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@testing-library/dom": "10.3.1",
+    "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.0.0",
     "@testing-library/user-event": "14.5.2",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@vitejs/plugin-react-swc": "3.7.0",
-    "jsdom": "24.1.0",
-    "typescript": "5.5.3",
-    "vite": "5.3.3",
+    "jsdom": "24.1.1",
+    "typescript": "5.5.4",
+    "vite": "5.3.4",
     "vite-tsconfig-paths": "4.3.2",
-    "vitest": "2.0.2"
+    "vitest": "2.0.4"
   }
 }
