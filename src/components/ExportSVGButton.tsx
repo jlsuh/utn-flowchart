@@ -22,7 +22,13 @@ function ExportSVGButton() {
   };
 
   return (
-    <Button variant="contained" onClick={handleClickExportSVG}>
+    <Button
+      variant="contained"
+      onClick={handleClickExportSVG}
+      sx={{
+        boxShadow: 'none',
+      }}
+    >
       <FileDownloadIcon sx={{ mr: 1, fontSize: 22 }} />
       <Typography>Exportar</Typography>
     </Button>
