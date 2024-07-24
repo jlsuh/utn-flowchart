@@ -16,20 +16,20 @@ const continuation = (svg: SVGElement) => {
 };
 
 function ShowDigraphButton() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingDigraph, setIsLoadingDigraph] = useState(false);
 
   const { composeDigraph } = useDigraph();
 
   const handleClickShowDigraph = async () => {
-    setIsLoading(true);
+    setIsLoadingDigraph(true);
     const digraph = composeDigraph();
     await renderSVG(digraph, continuation);
-    setIsLoading(false);
+    setIsLoadingDigraph(false);
   };
 
   return (
     <Button variant="outlined" onClick={handleClickShowDigraph}>
-      {isLoading ? (
+      {isLoadingDigraph ? (
         <CircularProgress sx={{ mr: 1 }} size={22} />
       ) : (
         <PolylineIcon sx={{ mr: 1, fontSize: 22 }} />
