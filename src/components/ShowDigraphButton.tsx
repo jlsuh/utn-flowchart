@@ -28,11 +28,15 @@ function ShowDigraphButton() {
   };
 
   return (
-    <Button variant="outlined" onClick={handleClickShowDigraph}>
+    <Button
+      disabled={isLoadingDigraph}
+      onClick={handleClickShowDigraph}
+      variant="outlined"
+    >
       {isLoadingDigraph ? (
-        <CircularProgress sx={{ mr: 1 }} size={22} />
+        <CircularProgress size={22} sx={{ mr: 1 }} />
       ) : (
-        <PolylineIcon sx={{ mr: 1, fontSize: 22 }} />
+        <PolylineIcon sx={{ fontSize: 22, mr: 1 }} />
       )}
       <Typography>Ver Digrafo</Typography>
     </Button>

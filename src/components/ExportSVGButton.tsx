@@ -2,7 +2,8 @@ import { useDigraph } from '@/hooks';
 import { renderSVG } from '@/services';
 import { composeSVGObjectURL } from '@/utils';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { Button, Typography } from '@mui/material';
+import { Button, CircularProgress, Typography } from '@mui/material';
+import { useState } from 'react';
 
 const continuation = (svg: SVGElement) => {
   const url = composeSVGObjectURL(svg);
@@ -14,22 +15,31 @@ const continuation = (svg: SVGElement) => {
 };
 
 function ExportSVGButton() {
+  const [isLoadingDigraph, setIsLoadingDigraph] = useState(false);
+
   const { composeDigraph } = useDigraph();
 
-  const handleClickExportSVG = () => {
+  const handleClickExportSVG = async () => {
+    setIsLoadingDigraph(true);
     const digraph = composeDigraph();
-    renderSVG(digraph, continuation);
+    await renderSVG(digraph, continuation);
+    setIsLoadingDigraph(false);
   };
 
   return (
     <Button
-      variant="contained"
+      disabled={isLoadingDigraph}
       onClick={handleClickExportSVG}
       sx={{
         boxShadow: 'none',
       }}
+      variant="contained"
     >
-      <FileDownloadIcon sx={{ mr: 1, fontSize: 22 }} />
+      {isLoadingDigraph ? (
+        <CircularProgress color="inherit" size={22} sx={{ mr: 1 }} />
+      ) : (
+        <FileDownloadIcon sx={{ fontSize: 22, mr: 1 }} />
+      )}
       <Typography>Exportar</Typography>
     </Button>
   );

@@ -1,7 +1,8 @@
+import importViz from './importViz';
+
 async function getVizInstance() {
-  const viz = await import('@viz-js/viz');
-  const instance = await viz.instance();
-  return instance;
+  const viz = await importViz();
+  return viz.instance();
 }
 
 export default getVizInstance;
