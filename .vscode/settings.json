@@ -1,8 +1,8 @@
 {
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
-    "source.fixAll": "explicit",
-    "source.organizeImports.biome": "explicit"
+    "source.addMissingImports.ts": "explicit",
+    "source.organizeImports": "explicit"
   },
   "editor.defaultFormatter": "biomejs.biome",
   "[markdown]": {
