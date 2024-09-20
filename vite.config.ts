@@ -8,11 +8,11 @@ const viteConfig = defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          reactDOM: ["react-dom"],
-          emotionReact: ["@emotion/react"],
-          emotionStyled: ["@emotion/styled"],
-          muiMaterial: ["@mui/material"],
-          viz: ["@viz-js/viz"],
+          reactDOM: ['react-dom'],
+          emotionReact: ['@emotion/react'],
+          emotionStyled: ['@emotion/styled'],
+          muiMaterial: ['@mui/material'],
+          viz: ['@viz-js/viz'],
         },
       },
     },
