@@ -1,6 +1,7 @@
 import { PlanSelect } from '@/components';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
 function NavBar() {
   return (
@@ -15,10 +16,10 @@ function NavBar() {
           container
           sx={{
             alignItems: 'center',
+            flex: 'auto',
             justifyContent: { xs: 'center', sm: 'space-between' },
+            rowGap: 1,
           }}
-          style={{ flexFlow: 'wrap' }}
-          rowGap={1}
         >
           <Typography
             component="div"

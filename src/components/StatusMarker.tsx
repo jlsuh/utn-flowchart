@@ -1,14 +1,17 @@
 import { PlanContext } from '@/context';
 import type { PlanContextProps, Status, SubjectProps } from '@/types';
 import { Box, Divider, Link } from '@mui/material';
+import { dividerClasses } from '@mui/material/Divider';
 import { useContext } from 'react';
 
 function StatusMarker({
-  status,
   levelSubjects,
+  renderDivider,
+  status,
 }: {
-  status: Status;
   levelSubjects: ReadonlyArray<SubjectProps>;
+  renderDivider: boolean;
+  status: Status;
 }) {
   const { updateStatuses } = useContext<PlanContextProps>(PlanContext);
 
@@ -20,20 +23,20 @@ function StatusMarker({
   return (
     <Box
       sx={{
-        '& hr': {
+        [`& .${dividerClasses.root}`]: {
           mx: 0.5,
         },
         display: 'flex',
       }}
     >
       <Link
-        onClick={handleClickStatusMarker}
         component="button"
+        onClick={handleClickStatusMarker}
         underline="hover"
       >
         {status.name}
       </Link>
-      <Divider orientation="vertical" flexItem />
+      {renderDivider ? <Divider flexItem orientation="vertical" /> : null}
     </Box>
   );
 }

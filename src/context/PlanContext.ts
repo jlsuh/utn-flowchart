@@ -3,8 +3,8 @@ import { createContext } from 'react';
 
 const PlanContext = createContext<PlanContextProps>({
   contextPlan: {
-    id: '',
     branch: '',
+    id: '',
     subjects: {},
   },
   updateMode: () => {},

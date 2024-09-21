@@ -12,10 +12,10 @@ function AppRouter() {
   return (
     <Routes>
       {plans.map((plan) => (
-        <Route key={plan.id} path={`/${plan.id}`} element={<PlanPage />} />
+        <Route element={<PlanPage />} key={plan.id} path={`/${plan.id}`} />
       ))}
-      <Route path="/" element={<Navigate to={`/${id}`} />} />
-      <Route path="*" element={<Navigate to={`/${id}`} />} />
+      <Route element={<Navigate to={`/${id}`} />} path="/" />
+      <Route element={<Navigate to={`/${id}`} />} path="*" />
     </Routes>
   );
 }

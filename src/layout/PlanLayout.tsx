@@ -7,7 +7,7 @@ function PlanLayout({ children }: { children: ReactNode }) {
     <>
       <NavBar />
       <Box component="main" sx={{ overflowWrap: 'anywhere' }}>
-        <Toolbar disableGutters sx={{ my: { xs: 8.5, sm: 0.5 } }} />
+        <Toolbar disableGutters sx={{ my: { xs: 8, sm: 2 } }} />
         {children}
       </Box>
     </>

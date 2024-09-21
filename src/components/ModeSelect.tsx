@@ -16,7 +16,7 @@ function ModeSelect({ subject }: { subject: SubjectProps }) {
 
   return (
     <FormControl fullWidth sx={{ mt: 1, mx: 1 }}>
-      <InputLabel variant="standard" htmlFor={`${subject.id}-input-label`}>
+      <InputLabel htmlFor={`${subject.id}-input-label`} variant="standard">
         Modalidad
       </InputLabel>
       <NativeSelect
