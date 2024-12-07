@@ -1,6 +1,5 @@
 import { PlanContext } from '@/context';
 import { plans } from '@/data';
-import type { PlanContextProps } from '@/types';
 import {
   FormControl,
   MenuItem,
@@ -30,7 +29,7 @@ const selectStyles = {
 };
 
 function PlanSelect({ availablePlans = plans }) {
-  const { contextPlan } = use<PlanContextProps>(PlanContext);
+  const { contextPlan } = use(PlanContext);
   const navigate = useNavigate();
 
   const handleChangeMenuItem = (event: SelectChangeEvent<string>) => {

@@ -1,11 +1,11 @@
 import { PlanContext } from '@/context';
-import type { PlanContextProps, SubjectProps } from '@/types';
+import type { SubjectProps } from '@/types';
 import { replaceWhiteSpace } from '@/utils';
 import { FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { type ChangeEvent, use } from 'react';
 
 function ModeSelect({ subject }: { subject: SubjectProps }) {
-  const { contextPlan, updateMode } = use<PlanContextProps>(PlanContext);
+  const { contextPlan, updateMode } = use(PlanContext);
   const targetSubject = contextPlan.subjects[subject.id];
   const contextMode = targetSubject.modes[0];
 

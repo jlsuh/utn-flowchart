@@ -1,5 +1,5 @@
 import { PlanContext } from '@/context';
-import type { PlanContextProps, Status, SubjectProps } from '@/types';
+import type { Status, SubjectProps } from '@/types';
 import { Box, Divider, Link } from '@mui/material';
 import { dividerClasses } from '@mui/material/Divider';
 import { use } from 'react';
@@ -13,7 +13,7 @@ function StatusMarker({
   renderDivider: boolean;
   status: Status;
 }) {
-  const { updateStatuses } = use<PlanContextProps>(PlanContext);
+  const { updateStatuses } = use(PlanContext);
 
   const handleClickStatusMarker = () => {
     const newStatus = status;
