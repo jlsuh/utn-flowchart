@@ -2,11 +2,11 @@ import { PlanContext } from '@/context';
 import { plans } from '@/data';
 import { PlanPage } from '@/pages';
 import type { PlanContextProps } from '@/types';
-import { useContext } from 'react';
+import { use } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 function AppRouter() {
-  const { contextPlan } = useContext<PlanContextProps>(PlanContext);
+  const { contextPlan } = use<PlanContextProps>(PlanContext);
   const { id } = contextPlan;
 
   return (

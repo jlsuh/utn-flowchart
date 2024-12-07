@@ -5,10 +5,10 @@ import type { PlanContextProps } from '@/types';
 import { findPlanById, replaceWhiteSpace } from '@/utils';
 import { Box, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { useContext } from 'react';
+import { use } from 'react';
 
 function SubjectStack() {
-  const { contextPlan } = useContext<PlanContextProps>(PlanContext);
+  const { contextPlan } = use<PlanContextProps>(PlanContext);
   const plan = findPlanById(contextPlan.id);
   const subjectsByLevel = plan.subjects;
   const statusesMaxIndex = Object.values(statuses).length - 1;

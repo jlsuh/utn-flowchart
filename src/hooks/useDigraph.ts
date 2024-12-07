@@ -1,10 +1,10 @@
 import { PlanContext } from '@/context';
 import type { PlanContextProps } from '@/types';
 import { Digraph, findPlanById } from '@/utils';
-import { useContext } from 'react';
+import { use } from 'react';
 
 function useDigraph() {
-  const { contextPlan } = useContext<PlanContextProps>(PlanContext);
+  const { contextPlan } = use<PlanContextProps>(PlanContext);
   const plan = findPlanById(contextPlan.id);
 
   function composeDigraph() {

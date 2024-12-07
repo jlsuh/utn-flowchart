@@ -7,7 +7,7 @@ import {
   Select,
   type SelectChangeEvent,
 } from '@mui/material';
-import { useContext } from 'react';
+import { use } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const selectStyles = {
@@ -30,7 +30,7 @@ const selectStyles = {
 };
 
 function PlanSelect({ availablePlans = plans }) {
-  const { contextPlan } = useContext<PlanContextProps>(PlanContext);
+  const { contextPlan } = use<PlanContextProps>(PlanContext);
   const navigate = useNavigate();
 
   const handleChangeMenuItem = (event: SelectChangeEvent<string>) => {

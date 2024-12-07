@@ -8,11 +8,10 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
-import { type ChangeEvent, useContext } from 'react';
+import { type ChangeEvent, use } from 'react';
 
 function StatusRadioGroup({ subject }: { subject: SubjectProps }) {
-  const { contextPlan, updateStatuses } =
-    useContext<PlanContextProps>(PlanContext);
+  const { contextPlan, updateStatuses } = use<PlanContextProps>(PlanContext);
   const contextSubject = contextPlan.subjects[subject.id];
   const contextStatus = contextSubject.status;
 
