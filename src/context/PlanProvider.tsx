@@ -101,7 +101,7 @@ function PlanProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <PlanContext.Provider
+    <PlanContext
       value={{
         contextPlan,
         updateMode,
@@ -109,7 +109,7 @@ function PlanProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </PlanContext.Provider>
+    </PlanContext>
   );
 }
 

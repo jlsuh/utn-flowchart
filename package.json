@@ -23,27 +23,27 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/react": "11.13.3",
-    "@emotion/styled": "11.13.0",
-    "@mui/icons-material": "6.1.1",
-    "@mui/material": "6.1.1",
-    "@viz-js/viz": "3.9.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-router-dom": "6.26.2"
+    "@emotion/react": "11.13.5",
+    "@emotion/styled": "11.13.5",
+    "@mui/icons-material": "6.1.10",
+    "@mui/material": "6.1.10",
+    "@viz-js/viz": "3.11.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-router-dom": "7.0.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.2",
+    "@biomejs/biome": "1.9.4",
     "@testing-library/dom": "10.4.0",
-    "@testing-library/react": "16.0.1",
+    "@testing-library/react": "16.1.0",
     "@testing-library/user-event": "14.5.2",
-    "@types/react": "18.3.8",
-    "@types/react-dom": "18.3.0",
-    "@vitejs/plugin-react-swc": "3.7.0",
-    "jsdom": "25.0.0",
-    "typescript": "5.6.2",
-    "vite": "5.4.7",
-    "vite-tsconfig-paths": "5.0.1",
-    "vitest": "2.1.1"
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "@vitejs/plugin-react-swc": "3.7.2",
+    "jsdom": "25.0.1",
+    "typescript": "5.7.2",
+    "vite": "6.0.3",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "2.1.8"
   }
 }

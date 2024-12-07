@@ -1,13 +1,13 @@
 import { ModeSelect, StatusRadioGroup } from '@/components';
 import { PlanContext } from '@/context';
-import type { PlanContextProps, SubjectProps } from '@/types';
+import type { SubjectProps } from '@/types';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Card, CardActions, CardContent, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { useContext } from 'react';
+import { use } from 'react';
 
 function Subject({ subject }: { subject: SubjectProps }) {
-  const { contextPlan } = useContext<PlanContextProps>(PlanContext);
+  const { contextPlan } = use(PlanContext);
   const { subjects } = contextPlan;
   const contextSubject = subjects[subject.id];
   const color = contextSubject.status.color;

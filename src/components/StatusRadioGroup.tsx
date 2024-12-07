@@ -1,6 +1,6 @@
 import { PlanContext } from '@/context';
 import { statuses } from '@/data';
-import type { PlanContextProps, SubjectProps } from '@/types';
+import type { SubjectProps } from '@/types';
 import {
   FormControl,
   FormControlLabel,
@@ -8,11 +8,10 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
-import { type ChangeEvent, useContext } from 'react';
+import { type ChangeEvent, use } from 'react';
 
 function StatusRadioGroup({ subject }: { subject: SubjectProps }) {
-  const { contextPlan, updateStatuses } =
-    useContext<PlanContextProps>(PlanContext);
+  const { contextPlan, updateStatuses } = use(PlanContext);
   const contextSubject = contextPlan.subjects[subject.id];
   const contextStatus = contextSubject.status;
 
