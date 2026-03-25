@@ -1,6 +1,6 @@
-import { NavBar } from '@/components';
 import { Box, Toolbar } from '@mui/material';
 import type { ReactNode } from 'react';
+import { NavBar } from '@/components';
 
 function PlanLayout({ children }: { children: ReactNode }) {
   return (

@@ -100,9 +100,9 @@ const k23: DataPlan = {
         id: 'ingles2',
         modes: [modes.QUADRIMESTRAL],
         name: 'Inglés II',
-        passed: ['ingles1'],
+        passed: [],
         status: DEFAULT_STATUS,
-        taken: [],
+        taken: ['ingles1'],
       },
       {
         id: 'ssl',

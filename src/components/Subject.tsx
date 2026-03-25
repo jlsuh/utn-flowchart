@@ -1,10 +1,15 @@
+import CircleIcon from '@mui/icons-material/Circle';
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Grid,
+  Typography,
+} from '@mui/material';
+import { use } from 'react';
 import { ModeSelect, StatusRadioGroup } from '@/components';
 import { PlanContext } from '@/context';
 import type { SubjectProps } from '@/types';
-import CircleIcon from '@mui/icons-material/Circle';
-import { Card, CardActions, CardContent, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid2';
-import { use } from 'react';
 
 function Subject({ subject }: { subject: SubjectProps }) {
   const { contextPlan } = use(PlanContext);

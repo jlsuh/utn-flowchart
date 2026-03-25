@@ -1,9 +1,9 @@
-import { PlanSelect } from '@/components';
-import { PlanContext } from '@/context';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
+import { PlanSelect } from '@/components';
+import { PlanContext } from '@/context';
 import { contextPlanValue, plan1, plan2, planId1, planId2 } from './fixture';
 
 const mockedUseNavigate = vi.fn();

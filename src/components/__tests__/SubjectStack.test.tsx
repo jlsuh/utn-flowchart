@@ -1,10 +1,10 @@
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 import { SubjectStack } from '@/components';
 import { PlanContext } from '@/context';
 import { statuses } from '@/data';
 import * as utils from '@/utils';
-import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
 import { contextPlanValue, plan1 } from './fixture';
 
 describe(`<${SubjectStack.name} /> Tests`, () => {

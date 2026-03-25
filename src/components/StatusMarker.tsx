@@ -1,8 +1,8 @@
-import { PlanContext } from '@/context';
-import type { Status, SubjectProps } from '@/types';
 import { Box, Divider, Link } from '@mui/material';
 import { dividerClasses } from '@mui/material/Divider';
 import { use } from 'react';
+import { PlanContext } from '@/context';
+import type { Status, SubjectProps } from '@/types';
 
 function StatusMarker({
   levelSubjects,

@@ -1,7 +1,6 @@
-import { PlanSelect } from '@/components';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
+import { PlanSelect } from '@/components';
 
 function NavBar() {
   return (

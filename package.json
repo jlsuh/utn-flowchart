@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Un generador de digrafos de planes de estudio de la Universidad Tecnológica Nacional.",
-  "keywords": ["flowchart", "utn", "seguidor", "carrera"],
+  "keywords": [
+    "flowchart",
+    "utn",
+    "seguidor",
+    "carrera"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jlsuh/utn-flowchart.git"
@@ -23,27 +28,26 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/react": "11.13.5",
-    "@emotion/styled": "11.13.5",
-    "@mui/icons-material": "6.1.10",
-    "@mui/material": "6.1.10",
-    "@viz-js/viz": "3.11.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-router-dom": "7.0.2"
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "7.3.9",
+    "@mui/material": "7.3.9",
+    "@viz-js/viz": "3.25.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-router-dom": "7.13.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@testing-library/dom": "10.4.0",
-    "@testing-library/react": "16.1.0",
-    "@testing-library/user-event": "14.5.2",
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.1",
-    "@vitejs/plugin-react-swc": "3.7.2",
-    "jsdom": "25.0.1",
-    "typescript": "5.7.2",
-    "vite": "6.0.3",
-    "vite-tsconfig-paths": "5.1.4",
-    "vitest": "2.1.8"
+    "@biomejs/biome": "2.4.9",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.1",
+    "jsdom": "29.0.1",
+    "typescript": "6.0.2",
+    "vite": "8.0.2",
+    "vitest": "4.1.1"
   }
 }

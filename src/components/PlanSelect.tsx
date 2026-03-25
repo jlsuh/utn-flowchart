@@ -1,5 +1,3 @@
-import { PlanContext } from '@/context';
-import { plans } from '@/data';
 import {
   FormControl,
   MenuItem,
@@ -8,6 +6,8 @@ import {
 } from '@mui/material';
 import { use } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PlanContext } from '@/context';
+import { plans } from '@/data';
 
 const selectStyles = {
   color: 'primary.contrastText',

@@ -1,6 +1,6 @@
+import { Grid } from '@mui/material';
 import { Subject } from '@/components';
 import type { SubjectProps } from '@/types';
-import Grid from '@mui/material/Grid2';
 
 function SubjectGrid({
   levelSubjects,

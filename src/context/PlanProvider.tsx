@@ -1,8 +1,8 @@
+import { type ReactNode, useReducer } from 'react';
+import { useLocation } from 'react-router-dom';
 import { PlanContext } from '@/context';
 import { plans } from '@/data';
 import type { ContextPlan, DataPlan, Status, SubjectProps } from '@/types';
-import { type ReactNode, useReducer } from 'react';
-import { useLocation } from 'react-router-dom';
 import { planReducer, planTypes } from './planReducer';
 
 const DEFAULT_PLAN = plans[0];

@@ -1,22 +1,24 @@
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
-const viteConfig = defineConfig({
-  plugins: [react(), tsconfigPaths()],
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          reactDOM: ['react-dom'],
-          emotionReact: ['@emotion/react'],
-          emotionStyled: ['@emotion/styled'],
-          muiMaterial: ['@mui/material'],
-          viz: ['@viz-js/viz'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-dom')) return 'reactDOM';
+            if (id.includes('@emotion/react')) return 'emotionReact';
+            if (id.includes('@emotion/styled')) return 'emotionStyled';
+            if (id.includes('@mui/material')) return 'muiMaterial';
+            if (id.includes('@viz-js/viz')) return 'viz';
+          }
         },
       },
     },
   },
 });
-
-export default viteConfig;

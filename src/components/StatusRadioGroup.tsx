@@ -1,6 +1,3 @@
-import { PlanContext } from '@/context';
-import { statuses } from '@/data';
-import type { SubjectProps } from '@/types';
 import {
   FormControl,
   FormControlLabel,
@@ -9,6 +6,9 @@ import {
   RadioGroup,
 } from '@mui/material';
 import { type ChangeEvent, use } from 'react';
+import { PlanContext } from '@/context';
+import { statuses } from '@/data';
+import type { SubjectProps } from '@/types';
 
 function StatusRadioGroup({ subject }: { subject: SubjectProps }) {
   const { contextPlan, updateStatuses } = use(PlanContext);
@@ -30,14 +30,17 @@ function StatusRadioGroup({ subject }: { subject: SubjectProps }) {
         onChange={handleChangeRadioInput}
         value={JSON.stringify(contextStatus)}
       >
-        {Object.values(statuses).map((status, index) => (
-          <FormControlLabel
-            control={<Radio />}
-            key={`${subject.id}-status-radio-group-input-${index}`}
-            label={status.name}
-            value={JSON.stringify(status)}
-          />
-        ))}
+        {Object.values(statuses).map((status, index) => {
+          const key = `${subject.id}-status-radio-group-input-${index}`;
+          return (
+            <FormControlLabel
+              control={<Radio />}
+              key={key}
+              label={status.name}
+              value={JSON.stringify(status)}
+            />
+          );
+        })}
       </RadioGroup>
     </FormControl>
   );

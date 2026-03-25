@@ -1,9 +1,9 @@
-import { Subject } from '@/components';
-import { PlanContext } from '@/context';
-import { modes, statuses } from '@/data';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
+import { Subject } from '@/components';
+import { PlanContext } from '@/context';
+import { modes, statuses } from '@/data';
 import { contextPlanValue, subject } from './fixture';
 
 describe(`<${Subject.name} /> Tests`, () => {

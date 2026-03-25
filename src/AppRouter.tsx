@@ -1,8 +1,8 @@
+import { use } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { PlanContext } from '@/context';
 import { plans } from '@/data';
 import { PlanPage } from '@/pages';
-import { use } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
 
 function AppRouter() {
   const { contextPlan } = use(PlanContext);
