@@ -7,7 +7,7 @@ const options = {
   annualSubject: `shape="box"`,
   globalArrowSize: `arrowsize="0.5"`,
   globalDigraph: `ranksep="3"rankdir="BT"nodesep="0.3"`,
-  takenTransitionEdgeStyle: `style="dotted"penwidth="2"`,
+  takenTransitionEdgeStyle: `style="dashed"penwidth="1"`,
 } as const;
 
 const statuses = {
