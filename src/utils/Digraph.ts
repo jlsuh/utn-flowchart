@@ -80,21 +80,30 @@ class Digraph {
     }
   }
 
-  private appendDependenciesNames(dependencies: ReadonlyArray<SubjectProps>) {
-    this.appendSubjectNames(dependencies.map((subject) => subject.name));
+  private appendDependencyEdge(
+    dependency: SubjectProps,
+    subject: SubjectProps,
+    options: ReadonlyArray<string>,
+    tooltip: string,
+  ) {
+    this.appendSubjectNames([dependency.name]);
+    this.appendString('->');
+    this.appendSubjectNames([subject.name]);
+    this.appendString(
+      this.getJoinedOptions([...options, `tooltip="${tooltip}"`]),
+    );
   }
 
   private appendDependenciesWithOptions(
     subject: SubjectProps,
     dependencies: ReadonlyArray<SubjectProps>,
     options: ReadonlyArray<string>,
+    action: string,
   ) {
-    this.appendOpening();
-    this.appendDependenciesNames(dependencies);
-    this.appendClosing();
-    this.appendString('->');
-    this.appendSubjectNames([subject.name]);
-    this.appendString(this.getJoinedOptions(options));
+    for (const dependency of dependencies) {
+      const tooltip = `${action} ${dependency.name} para cursar ${subject.name}`;
+      this.appendDependencyEdge(dependency, subject, options, tooltip);
+    }
   }
 
   private appendSameRank(levelSubjects: ReadonlyArray<SubjectProps>) {
@@ -117,6 +126,7 @@ class Digraph {
         subject,
         this.filterNonPassedSubjects(takenSubjects),
         [`${options.globalArrowSize}`, `${options.takenTransitionEdgeStyle}`],
+        'Firmar',
       );
     }
   }
@@ -129,6 +139,7 @@ class Digraph {
         subject,
         this.filterNonPassedSubjects(passedSubjects),
         [`${options.globalArrowSize}`],
+        'Aprobar',
       );
     }
   }
